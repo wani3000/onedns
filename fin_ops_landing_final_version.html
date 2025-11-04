@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ONEDNS – Smarter Logistics Operations for Modern Brands</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
     <style>
-      html,body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Apple Color Emoji","Segoe UI Emoji",Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+      html,body{font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,"Helvetica Neue","Segoe UI","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol",sans-serif}
       .container-tight{width:100%;max-width:none;margin-left:auto;margin-right:auto}
       .glass{backdrop-filter: blur(12px); background: rgba(255,255,255,0.7)}
     </style>
@@ -367,26 +365,53 @@
     </section>
 
     <!-- Designed for workflows -->
-    <section class="bg-neutral-50 py-16">
+    <section class="bg-black py-16">
       <div class="mx-auto container-tight px-4 md:px-6 lg:px-8 xl:px-12">
-        <h2 class="text-2xl md:text-4xl font-extrabold">현실적인 물류 워크플로에 최적화된 설계</h2>
-        <p class="mt-3 max-w-3xl text-neutral-700">쉽게 시작하고, 빠르게 적응하고, 끝없이 확장합니다.</p>
-        <div class="mt-8 grid gap-6 md:grid-cols-4">
-          <div class="rounded-2xl border bg-white p-6">
-            <h3 class="text-lg font-semibold">간편 온보딩</h3>
-            <p class="mt-2 text-sm text-neutral-600">3일 내 데이터 이관 및 창고 매핑 완료</p>
+        <h2 class="text-2xl md:text-4xl font-extrabold text-white mb-3">현실적인 물류 워크플로에 최적화된 설계</h2>
+        <p class="text-lg text-neutral-300 mb-12">쉽게 시작하고, 빠르게 적응하고, 끝없이 확장합니다.</p>
+        <div class="grid gap-6 md:grid-cols-2">
+          <!-- Card 1: 간편 온보딩 -->
+          <div class="rounded-2xl border border-neutral-200 bg-white p-6">
+            <div class="w-12 h-12 rounded-lg bg-neutral-100 flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-neutral-900 mb-2">간편 온보딩</h3>
+            <p class="text-sm text-neutral-600">3일 내 데이터 이관 및 창고 매핑 완료</p>
           </div>
-          <div class="rounded-2xl border bg-white p-6">
-            <h3 class="text-lg font-semibold">빠른 적응</h3>
-            <p class="mt-2 text-sm text-neutral-600">누구나 사용할 수 있는 직관적 UI</p>
+
+          <!-- Card 2: 빠른 적응 -->
+          <div class="rounded-2xl border border-neutral-200 bg-white p-6">
+            <div class="w-12 h-12 rounded-lg bg-neutral-100 flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-neutral-900 mb-2">빠른 적응</h3>
+            <p class="text-sm text-neutral-600">누구나 사용할 수 있는 직관적 UI</p>
           </div>
-          <div class="rounded-2xl border bg-white p-6">
-            <h3 class="text-lg font-semibold">유연한 연동</h3>
-            <p class="mt-2 text-sm text-neutral-600">쇼핑몰·ERP·택배사 API 완전 호환</p>
+
+          <!-- Card 3: 유연한 연동 -->
+          <div class="rounded-2xl border border-neutral-200 bg-white p-6">
+            <div class="w-12 h-12 rounded-lg bg-neutral-100 flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-neutral-900 mb-2">유연한 연동</h3>
+            <p class="text-sm text-neutral-600">쇼핑몰·ERP·택배사 API 완전 호환</p>
           </div>
-          <div class="rounded-2xl border bg-white p-6">
-            <h3 class="text-lg font-semibold">확장성 확보</h3>
-            <p class="mt-2 text-sm text-neutral-600">다중 브랜드·다중 창고 구조 지원</p>
+
+          <!-- Card 4: 확장성 확보 -->
+          <div class="rounded-2xl border border-neutral-200 bg-white p-6">
+            <div class="w-12 h-12 rounded-lg bg-neutral-100 flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-neutral-900 mb-2">확장성 확보</h3>
+            <p class="text-sm text-neutral-600">다중 브랜드·다중 창고 구조 지원</p>
           </div>
         </div>
       </div>
