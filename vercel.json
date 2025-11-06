@@ -2,6 +2,7 @@
   "version": 2,
   "builds": [{ "src": "index.html", "use": "@vercel/static" }],
   "routes": [
+    { "src": "/logo_onedns.svg", "dest": "/logo_onedns.svg" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
