@@ -1,6 +1,9 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    { 
+      "source": "/((?!.*\\.svg$).*)", 
+      "destination": "/index.html" 
+    }
   ],
   "headers": [
     {
