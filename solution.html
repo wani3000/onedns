@@ -1,0 +1,1407 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>솔루션 | ONEDNS – 패션 브랜드를 위한 통합 풀필먼트 시스템</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        colors: {
+          transparent: 'transparent',
+          current: 'currentColor',
+          black: '#0F0F10',
+          white: '#F7F7F8',
+          neutral: {
+            50: '#F7F7F8',
+            100: '#F4F4F5',
+            200: '#EAEBEC',
+            300: '#E1E2E4',
+            400: '#DBDCDF',
+            500: '#C2C4C8',
+            600: '#AEB0B6',
+            700: '#989BA2',
+            800: '#878A93',
+            900: '#70737C',
+            950: '#5A5C63',
+          },
+          gray: {
+            50: '#F7F7F8',
+            100: '#F4F4F5',
+            200: '#EAEBEC',
+            300: '#E1E2E4',
+            400: '#DBDCDF',
+            500: '#C2C4C8',
+            600: '#AEB0B6',
+            700: '#989BA2',
+            800: '#878A93',
+            900: '#70737C',
+            950: '#5A5C63',
+          },
+          blue: {
+            main: '#196DF6',
+            light: '#CFE4FF',
+            lightest: '#F1F7FF',
+          },
+          onedns: {
+            blue: '#196DF6',
+            'blue-light': '#CFE4FF',
+            'blue-lightest': '#F1F7FF',
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Pretendard Font (CDN + Fallback) -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    :root{
+      --cool-neutral-99:#F7F7F8;
+      --cool-neutral-98:#F4F4F5;
+      --cool-neutral-97:#EAEBEC;
+      --cool-neutral-96:#E1E2E4;
+      --cool-neutral-95:#DBDCDF;
+      --cool-neutral-90:#C2C4C8;
+      --cool-neutral-80:#AEB0B6;
+      --cool-neutral-70:#989BA2;
+      --cool-neutral-60:#878A93;
+      --cool-neutral-50:#70737C;
+      --cool-neutral-40:#5A5C63;
+      --cool-neutral-30:#46474C;
+      --cool-neutral-25:#37383C;
+      --cool-neutral-23:#333438;
+      --cool-neutral-22:#2E2F33;
+      --cool-neutral-20:#292A2D;
+      --cool-neutral-17:#212225;
+      --cool-neutral-15:#1B1C1E;
+      --cool-neutral-10:#171719;
+      --cool-neutral-7:#141415;
+      --cool-neutral-5:#0F0F10;
+      /* ONEDNS Blue Colors */
+      --onedns-blue-main:#196DF6;
+      --onedns-blue-light:#CFE4FF;
+      --onedns-blue-lightest:#F1F7FF;
+    }
+    body, html {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+        Roboto, 'Helvetica Neue', Arial, 'Apple SD Gothic Neo', 'Noto Sans KR',
+        'Malgun Gothic', sans-serif;
+    }
+    .container-tight{width:100%;max-width:1600px;margin-left:auto;margin-right:auto}
+    .glass{backdrop-filter: blur(12px); background: rgba(255,255,255,0.7)}
+    .nav-dropdown{position:relative}
+    .nav-dropdown:hover .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}
+    .nav-dropdown-menu{position:absolute;top:100%;left:0;margin-top:8px;min-width:180px;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity 0.2s ease,transform 0.2s ease,visibility 0.2s ease;background:white;border:1px solid rgba(0,0,0,0.1);border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.1);padding:8px 0;z-index:50}
+    .nav-dropdown-item{display:block;padding:10px 16px;color:#374151;text-decoration:none;font-size:14px;white-space:nowrap;transition:background 0.15s ease}
+    .nav-dropdown-item:hover{background:#f3f4f6;color:#111827}
+    /* Typography Styles */
+    /* Titles - #0F0F10 */
+    .typography-display-1{font-size:56px;line-height:72px;letter-spacing:-0.0319em;color:#0F0F10}
+    .typography-display-2{font-size:40px;line-height:52px;letter-spacing:-0.0282em;color:#0F0F10}
+    .typography-title-1{font-size:36px;line-height:48px;letter-spacing:-0.027em;color:#0F0F10}
+    .typography-title-2{font-size:28px;line-height:38px;letter-spacing:-0.0236em;color:#0F0F10}
+    .typography-title-3{font-size:24px;line-height:32px;letter-spacing:-0.023em;color:#0F0F10}
+    /* Subtitles and Body - #46474C */
+    .typography-heading-1{font-size:22px;line-height:30px;letter-spacing:-0.0194em;color:#46474C}
+    .typography-heading-2{font-size:20px;line-height:28px;letter-spacing:-0.012em;color:#46474C}
+    .typography-headline-1{font-size:18px;line-height:26px;letter-spacing:-0.002em;color:#46474C}
+    .typography-headline-2{font-size:17px;line-height:24px;letter-spacing:0em;color:#46474C}
+    .typography-body-1-normal{font-size:16px;line-height:24px;letter-spacing:0.0057em;color:#46474C}
+    .typography-body-1-reading{font-size:16px;line-height:26px;letter-spacing:0.0057em;color:#46474C}
+    .typography-body-2-normal{font-size:15px;line-height:22px;letter-spacing:0.0096em;color:#46474C}
+    .typography-body-2-reading{font-size:15px;line-height:24px;letter-spacing:0.0096em;color:#46474C}
+    .typography-label-1-normal{font-size:14px;line-height:20px;letter-spacing:0.0145em;color:#46474C}
+    .typography-label-1-reading{font-size:14px;line-height:22px;letter-spacing:0.0145em;color:#46474C}
+    .typography-label-2{font-size:13px;line-height:18px;letter-spacing:0.0194em;color:#46474C}
+    .typography-caption-1{font-size:12px;line-height:16px;letter-spacing:0.0252em;color:#46474C}
+    .typography-caption-2{font-size:11px;line-height:14px;letter-spacing:0.0311em;color:#46474C}
+    @media(max-width:768px){
+      .typography-display-1{font-size:32px;line-height:42px}
+      .typography-display-2{font-size:28px;line-height:36px}
+      .typography-title-1{font-size:24px;line-height:32px}
+      .typography-title-2{font-size:22px;line-height:28px}
+      .typography-headline-1{font-size:16px;line-height:24px}
+      .typography-heading-1{font-size:18px;line-height:26px}
+      .typography-body-1-reading{font-size:15px;line-height:22px}
+      .container-tight{padding-left:1rem;padding-right:1rem}
+    }
+  </style>
+</head>
+<body class="bg-white text-neutral-900">
+  <!-- Top Bar -->
+  <header class="site-header sticky top-0 z-50 border-b border-neutral-200/60 bg-white/80 glass">
+    <div class="mx-auto container-tight px-4 md:px-6 lg:px-8 xl:px-12 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <img src="logo_onedns.svg" alt="ONEDNS" class="h-7 w-auto" />
+      </a>
+      <button id="mobileMenuBtn" class="md:hidden p-2">
+        <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      <nav id="mainNav" class="hidden md:flex items-center gap-1 text-sm text-neutral-700">
+        <!-- 1. 회사 -->
+        <div class="nav-dropdown">
+          <a href="company.html" class="px-3 py-2 typography-label-1-normal hover:text-black cursor-pointer flex items-center gap-1">
+            회사
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="company.html" class="nav-dropdown-item">회사 및 3PL 소개</a>
+            <a href="#center-intro" class="nav-dropdown-item">센터소개</a>
+          </div>
+        </div>
+        
+        <!-- 2. 솔루션 -->
+        <div class="nav-dropdown">
+          <a href="solution.html" class="px-3 py-2 typography-label-1-normal hover:text-black cursor-pointer flex items-center gap-1">
+            솔루션
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="#plgo-oms" class="nav-dropdown-item">PLGO OMS</a>
+            <a href="#plgo-wms" class="nav-dropdown-item">PLGO WMS</a>
+          </div>
+        </div>
+        
+        <!-- 3. 인재 채용 -->
+        <div class="nav-dropdown">
+          <a href="career.html" class="px-3 py-2 typography-label-1-normal hover:text-black cursor-pointer flex items-center gap-1">
+            인재 채용
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="career.html#team-culture" class="nav-dropdown-item">팀 문화</a>
+            <a href="career.html#job-openings" class="nav-dropdown-item">채용공고</a>
+            <a href="career.html#career-faq" class="nav-dropdown-item">FAQ</a>
+          </div>
+        </div>
+        
+        <!-- 4. 소식 -->
+        <div class="nav-dropdown">
+          <a href="news.html" class="px-3 py-2 typography-label-1-normal hover:text-black cursor-pointer flex items-center gap-1">
+            소식
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="news.html#notice" class="nav-dropdown-item">공지사항</a>
+            <a href="news.html#plgo-guide" class="nav-dropdown-item">PLGO 사용 가이드</a>
+            <a href="news.html#plgo-updates" class="nav-dropdown-item">PLGO 업데이트 소식</a>
+          </div>
+        </div>
+        
+        <!-- 5. 윤리준법 제보 -->
+            <a href="ethics.html" class="px-3 py-2 typography-label-1-normal hover:text-black">윤리준법 제보</a>
+        
+        <!-- 6. 요금안내 -->
+        <div class="nav-dropdown">
+          <a href="pricing.html" class="px-3 py-2 typography-label-1-normal hover:text-black cursor-pointer flex items-center gap-1">
+            요금안내
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="pricing.html#pricing-info" class="nav-dropdown-item">요금안내</a>
+            <a href="pricing.html#quote" class="nav-dropdown-item">물류견적</a>
+          </div>
+        </div>
+        
+        <!-- 7. 서비스 신청 -->
+            <a href="sales.html" class="px-4 py-2 typography-label-1-normal text-white transition-opacity hover:opacity-90" style="background-color: #196DF6; border-radius: 300px;">서비스 신청</a>
+      </nav>
+    </div>
+    <!-- Mobile Menu (hidden on desktop) -->
+    <div id="mobileMenu" class="md:hidden fixed inset-0 z-40 transform translate-x-full transition-transform duration-300 ease-in-out" style="top: 73px; background-color: #FFFFFF !important; width: 100%; height: calc(100vh - 73px);">
+      <div class="flex flex-col p-6 space-y-4 overflow-y-auto" style="background-color: #FFFFFF;">
+        <!-- Mobile Menu Items -->
+        <a href="company.html" class="px-4 py-3 typography-label-1-normal hover:bg-neutral-100 rounded-lg" style="color: #46474C;">회사</a>
+        <a href="solution.html" class="px-4 py-3 typography-label-1-normal hover:bg-neutral-100 rounded-lg" style="color: #46474C;">솔루션</a>
+        <a href="career.html" class="px-4 py-3 typography-label-1-normal hover:bg-neutral-100 rounded-lg" style="color: #46474C;">인재 채용</a>
+        <a href="news.html" class="px-4 py-3 typography-label-1-normal hover:bg-neutral-100 rounded-lg" style="color: #46474C;">소식</a>
+        <a href="ethics.html" class="px-4 py-3 typography-label-1-normal hover:bg-neutral-100 rounded-lg" style="color: #46474C;">윤리준법 제보</a>
+        <a href="pricing.html" class="px-4 py-3 typography-label-1-normal hover:bg-neutral-100 rounded-lg" style="color: #46474C;">요금안내</a>
+        <a href="sales.html" class="px-4 py-3 typography-label-1-normal text-white hover:opacity-90 rounded-lg text-center" style="background-color: #196DF6; border-radius: 300px; color: white !important;">서비스 신청</a>
+      </div>
+    </div>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenuOverlay" class="md:hidden fixed inset-0 bg-black bg-opacity-50 z-30 opacity-0 invisible transition-opacity duration-300" style="top: 73px;"></div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative w-full bg-black min-h-screen md:min-h-[75vh] md:h-auto">
+    <!-- Image Wrapper / Background -->
+    <div class="absolute inset-0 w-full h-full">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+      <!-- Placeholder for background image/video -->
+      <div class="w-full h-full bg-black"></div>
+    </div>
+    
+    <!-- Content Wrapper -->
+    <div class="relative z-10 w-full h-full">
+      <div class="container-tight mx-auto px-4 md:px-6 lg:px-8 xl:px-12 min-h-screen md:min-h-[75vh] flex flex-col justify-end pb-16 md:pb-24 lg:pb-32">
+        <!-- Text Wrapper -->
+        <div class="max-w-4xl">
+          <h1 class="typography-display-1 font-medium text-white mb-4 md:mb-6 text-[40px] leading-[48px] md:text-[56px] md:leading-[72px]">
+            패션 브랜드를 위한<br class="hidden sm:block">통합 물류 솔루션
+          </h1>
+          <p class="typography-headline-1 font-light text-white mb-8 md:mb-10 text-[18px] leading-[27px] md:text-[21px] md:leading-[31.5px]">
+            복잡한 엑셀과 파편화된 시스템을 넘어,<br class="hidden sm:block">
+            명확하고 통제 가능하며 신뢰할 수 있는<br class="hidden sm:block">
+            패션물류테크로 브랜드를 성장시키세요.
+          </p>
+          
+          <!-- CTAs -->
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="#contact" class="inline-flex items-center justify-center px-8 py-3.5 md:px-9 md:py-4 bg-white text-black rounded-full typography-body-1-reading font-light hover:bg-neutral-100 transition-colors text-center">
+              서비스 문의하기
+            </a>
+            <a href="#pricing" class="inline-flex items-center justify-center px-8 py-3.5 md:px-9 md:py-4 bg-white/15 backdrop-blur-md text-white rounded-full typography-body-1-reading font-light hover:bg-white/25 transition-colors text-center">
+              요금 확인하기
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expense Tracking Section -->
+  <section class="py-16 md:py-24 lg:py-32 bg-white">
+    <div class="container-tight mx-auto px-4 md:px-6 lg:px-8 xl:px-12">
+      <!-- Container with rounded corners -->
+      <div class="rounded-2xl">
+        <!-- Row 1: Left Column with heading + Right Column with card -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-5">
+          <!-- Left Column (8/12) -->
+          <div class="lg:col-span-8 bg-neutral-50 rounded-2xl p-6 md:p-12 lg:p-16 flex flex-col justify-between min-h-[500px] md:min-h-[650px]" data-aos="fade-up" data-aos-duration="1000">
+            <!-- Heading Wrapper -->
+            <div>
+              <div class="inline-flex items-center gap-2 md:gap-3 px-2.5 py-1.5 md:px-3 md:py-2 bg-blue-lightest rounded-lg mb-4 md:mb-6">
+                <svg class="w-3.5 h-3.5 md:w-4 md:h-4 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                </svg>
+                <span class="typography-caption-1 font-light text-sm md:text-base">실시간 재고 추적</span>
+              </div>
+              
+              <h2 class="typography-display-2 font-light mb-6 md:mb-8 text-[32px] leading-[38.4px] md:text-[48px] md:leading-[57.6px] lg:text-[58px] lg:leading-[69.6px]">
+                모든 재고 움직임을<br>
+                자동으로 기록합니다
+              </h2>
+            </div>
+            
+            <!-- Text Wrapper -->
+            <div>
+              <p class="typography-heading-1 font-light mb-6 md:mb-8 max-w-xl text-[16px] leading-[24px] md:text-[18px] md:leading-[27px] lg:text-[21px] lg:leading-[31.5px]">
+                ONEDNS는 입고부터 출고까지 모든 재고를 자동으로 분류하고<br class="hidden lg:block">
+                이상 움직임을 감지하여 조기에 문제를 발견할 수 있도록 돕습니다.<br class="hidden lg:block">
+                완벽한 가시성을 통해 더 빠르게 대응하세요.
+              </p>
+              
+              <a href="#contact" class="inline-flex items-center justify-center px-6 py-3 md:px-9 md:py-4 bg-black text-white rounded-full typography-body-1-reading font-light hover:bg-neutral-900 transition-colors w-full sm:w-auto text-center">
+                데모 예약하기
+              </a>
+            </div>
+          </div>
+          
+          <!-- Right Column (4/12) - Transaction Card -->
+          <div class="lg:col-span-4 bg-neutral-100 rounded-2xl p-6 md:p-12 lg:p-16 flex items-center justify-center min-h-[400px] md:min-h-[650px]" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <div class="bg-white rounded-2xl shadow-lg p-5 md:p-8 w-full max-w-md">
+              <!-- Close button -->
+              <div class="flex justify-between items-center mb-6">
+                <h3 class="typography-heading-2 font-medium">재고 상세 내역</h3>
+                <button class="w-5 h-5 opacity-60">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+              
+              <!-- Header with highlighted info -->
+              <div class="bg-neutral-50 rounded-xl p-6 mb-6">
+                <div class="flex items-start justify-between">
+                  <div class="flex items-start gap-4">
+                    <div class="w-11 h-11 bg-neutral-200 rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg class="w-6 h-6 text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <p class="typography-heading-2 font-medium mb-1">여성 블라우스</p>
+                      <p class="typography-label-1-normal opacity-80">2025년 1월 13일, 오전 9:44</p>
+                    </div>
+                  </div>
+                  <p class="typography-title-2 font-semibold">-127개</p>
+                </div>
+              </div>
+              
+              <!-- Details Table -->
+              <div class="space-y-4 mb-6">
+                <div class="flex justify-between items-center">
+                  <span class="typography-headline-1 font-light">카테고리</span>
+                  <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
+                    </svg>
+                    <span class="typography-headline-1 font-medium">상의</span>
+                  </div>
+                </div>
+                
+                <div class="flex justify-between items-center">
+                  <span class="typography-headline-1 font-light">상태</span>
+                  <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                    </svg>
+                    <span class="typography-headline-1 font-medium text-orange-500">재고 부족</span>
+                  </div>
+                </div>
+                
+                <div class="flex justify-between items-center">
+                  <span class="typography-headline-1 font-light">위치</span>
+                  <span class="typography-headline-1 font-medium">A동 3층 B-12</span>
+                </div>
+                
+                <div class="flex justify-between items-center">
+                  <span class="typography-headline-1 font-light">SKU 코드</span>
+                  <span class="typography-headline-1 font-medium">BL-W-2025-001</span>
+                </div>
+              </div>
+              
+              <!-- Action Buttons -->
+              <div class="flex gap-3">
+                <button class="flex-1 px-6 py-3 bg-white border border-neutral-200 rounded-full typography-headline-1 font-medium hover:bg-neutral-50 transition-colors">
+                  재고 조정
+                </button>
+                <button class="flex-1 px-6 py-3 bg-onedns-blue text-white rounded-full typography-headline-1 font-medium hover:opacity-90 transition-opacity shadow-sm">
+                  발주 요청
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Row 2: Left Testimonial + Right Feature Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+          <!-- Left Column (6/12) - Testimonial -->
+          <div class="lg:col-span-6 bg-neutral-50 rounded-2xl p-6 md:p-12 lg:p-16 flex flex-col justify-between min-h-[500px] md:min-h-[650px]" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+            <div>
+              <!-- Avatar -->
+              <div class="w-16 h-16 bg-black rounded-full mb-24"></div>
+              
+              <!-- Quote -->
+              <blockquote class="typography-title-1 font-medium mb-8 md:text-[32px] md:leading-[38.4px]">
+                "ONEDNS 도입 전에는 엑셀로<br>
+                재고를 추적하느라 정신없었어요.<br>
+                이제는 문제를 즉시 파악하고<br>
+                매일 정확한 수치를 신뢰할 수<br>
+                있습니다."
+              </blockquote>
+              
+              <!-- Author -->
+              <div>
+                <p class="typography-caption-1 font-light mb-1">김서연</p>
+                <p class="typography-caption-1 font-light opacity-70">
+                  재고관리 팀장 @ <span class="text-black">모던룩 스튜디오</span>
+                </p>
+              </div>
+            </div>
+            
+            <a href="#cases" class="inline-flex items-center justify-center px-9 py-4 bg-black text-white rounded-full typography-body-1-reading font-light hover:bg-neutral-900 transition-colors w-fit">
+              사례 연구 읽기
+            </a>
+          </div>
+          
+          <!-- Right Column (6/12) - Feature Grid -->
+          <div class="lg:col-span-6 grid grid-cols-1 md:grid-cols-2 gap-5">
+            <!-- Feature 1 -->
+            <div class="bg-neutral-50 rounded-2xl p-5 md:p-8 flex flex-col justify-between min-h-[200px] md:min-h-[248px]" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+              <div class="w-9 h-9 bg-neutral-100 rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-5 h-5 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
+                </svg>
+              </div>
+              <p class="typography-heading-1 font-light">
+                수동 태깅 없이 재고가<br>
+                카테고리별로 자동 분류됩니다.
+              </p>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div class="bg-neutral-50 rounded-2xl p-5 md:p-8 flex flex-col justify-between min-h-[200px] md:min-h-[248px]" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+              <div class="w-9 h-9 bg-neutral-100 rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-5 h-5 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                </svg>
+              </div>
+              <p class="typography-heading-1 font-light">
+                중복, 급증, 이상 패턴을<br>
+                실시간으로 알립니다.
+              </p>
+            </div>
+            
+            <!-- Feature 3 -->
+            <div class="bg-neutral-50 rounded-2xl p-5 md:p-8 flex flex-col justify-between min-h-[200px] md:min-h-[248px]" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+              <div class="w-9 h-9 bg-neutral-100 rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-5 h-5 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+              </div>
+              <p class="typography-heading-1 font-light">
+                부서별, 센터별 재고 현황을<br>
+                실시간으로 모니터링합니다.
+              </p>
+            </div>
+            
+            <!-- Feature 4 -->
+            <div class="bg-neutral-50 rounded-2xl p-5 md:p-8 flex flex-col justify-between min-h-[200px] md:min-h-[248px]" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
+              <div class="w-9 h-9 bg-neutral-100 rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-5 h-5 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                </svg>
+              </div>
+              <p class="typography-heading-1 font-light">
+                맞춤 라벨과 메타데이터로<br>
+                필요한 대로 조정 가능합니다.
+              </p>
+            </div>
+            
+            <!-- Feature 5 - Horizontal -->
+            <div class="md:col-span-2 bg-neutral-50 rounded-2xl p-5 md:p-8 flex items-center gap-4 md:gap-6 min-h-[100px] md:min-h-[114px]" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
+              <div class="w-9 h-9 bg-neutral-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"></path>
+                </svg>
+              </div>
+              <p class="typography-heading-1 font-light">
+                깔끔하게 필터링된 보고서를 즉시 공유할 수 있습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Budget Control Section -->
+  <section class="py-16 md:py-24 lg:py-32 bg-neutral-50">
+    <div class="container-tight mx-auto px-4 md:px-6 lg:px-8 xl:px-12">
+      <!-- Container with rounded corners -->
+      <div class="rounded-2xl">
+        <!-- Row 1: Left Column with heading + Right Column with widgets -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-5">
+          <!-- Left Column (8/12) -->
+          <div class="lg:col-span-8 bg-neutral-50 rounded-2xl p-6 md:p-12 lg:p-16 flex flex-col justify-between min-h-[500px] md:min-h-[650px]" data-aos="fade-up" data-aos-duration="1000">
+            <!-- Heading Wrapper -->
+            <div>
+              <div class="inline-flex items-center gap-2 md:gap-3 px-2.5 py-1.5 md:px-3 md:py-2 bg-blue-lightest rounded-lg mb-4 md:mb-6">
+                <svg class="w-3.5 h-3.5 md:w-4 md:h-4 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                </svg>
+                <span class="typography-caption-1 font-light text-sm md:text-base">예산 관리</span>
+              </div>
+              
+              <h2 class="typography-display-2 font-light mb-6 md:mb-8 text-[32px] leading-[38.4px] md:text-[48px] md:leading-[57.6px] lg:text-[58px] lg:leading-[69.6px]">
+                예산을 초과하지 않고<br>
+                간편하게 관리하세요
+              </h2>
+            </div>
+            
+            <!-- Text Wrapper -->
+            <div>
+              <p class="typography-heading-1 font-light mb-6 md:mb-8 max-w-xl text-[16px] leading-[24px] md:text-[18px] md:leading-[27px] lg:text-[21px] lg:leading-[31.5px]">
+                팀, 프로젝트, 협력사별로 유연한 예산을 설정하고<br class="hidden lg:block">
+                ONEDNS가 추적, 알림, 업데이트를 자동으로 처리합니다.
+              </p>
+              
+              <a href="#contact" class="inline-flex items-center justify-center px-6 py-3 md:px-9 md:py-4 bg-black text-white rounded-full typography-body-1-reading font-light hover:bg-neutral-900 transition-colors w-full sm:w-auto text-center">
+                데모 예약하기
+              </a>
+            </div>
+          </div>
+          
+          <!-- Right Column (4/12) - Widgets -->
+          <div class="lg:col-span-4 bg-neutral-100 rounded-2xl p-6 md:p-12 lg:p-16 flex items-center justify-center min-h-[400px] md:min-h-[650px]" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <div class="w-full max-w-md space-y-5">
+              <!-- Company Budget Widget -->
+              <div class="bg-white rounded-2xl shadow-lg p-5 md:p-6">
+                <div class="flex justify-between items-start mb-6">
+                  <h3 class="typography-body-1-normal font-medium">월별 재고 예산 - 1월</h3>
+                  <div class="px-2 py-1 bg-green-500 text-white rounded text-xs font-light">+12%</div>
+                </div>
+                
+                <p class="typography-display-2 font-medium mb-8">₩244,300</p>
+                
+                <!-- Donut Chart Placeholder -->
+                <div class="relative w-full aspect-square max-w-[240px] mx-auto">
+                  <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                    <!-- Background circle -->
+                    <circle cx="50" cy="50" r="40" fill="none" stroke="#E1E2E4" stroke-width="12"/>
+                    <!-- Design segment -->
+                    <circle cx="50" cy="50" r="40" fill="none" stroke="#3B82F6" stroke-width="12" 
+                            stroke-dasharray="25 100" stroke-dashoffset="0"/>
+                    <!-- Sales segment -->
+                    <circle cx="50" cy="50" r="40" fill="none" stroke="#8B5CF6" stroke-width="12" 
+                            stroke-dasharray="30 100" stroke-dashoffset="-25"/>
+                    <!-- Finance segment -->
+                    <circle cx="50" cy="50" r="40" fill="none" stroke="#EC4899" stroke-width="12" 
+                            stroke-dasharray="25 100" stroke-dashoffset="-55"/>
+                    <!-- Ops segment -->
+                    <circle cx="50" cy="50" r="40" fill="none" stroke="#F59E0B" stroke-width="12" 
+                            stroke-dasharray="20 100" stroke-dashoffset="-80"/>
+                  </svg>
+                  
+                  <!-- Labels -->
+                  <div class="absolute top-4 left-0 typography-caption-2 font-light">디자인</div>
+                  <div class="absolute top-0 right-4 typography-caption-2 font-light">물류</div>
+                  <div class="absolute bottom-0 right-4 typography-caption-2 font-light">운영</div>
+                  <div class="absolute bottom-4 left-12 typography-caption-2 font-light">마케팅</div>
+                </div>
+              </div>
+              
+              <!-- Budget Alert Widget -->
+              <div class="bg-red-50 rounded-2xl shadow-lg p-6">
+                <div class="flex items-start gap-2 mb-4">
+                  <svg class="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                  </svg>
+                  <h4 class="typography-body-1-normal font-semibold text-orange-600">예산 한도 근접</h4>
+                </div>
+                
+                <p class="typography-label-1-reading mb-6 text-neutral-900" style="opacity: 0.8;">
+                  프로젝트 #KZ88DS가 월별 예산의<br>
+                  93%를 사용했습니다.
+                </p>
+                
+                <button class="w-full px-6 py-3 bg-black text-white rounded-full typography-label-1-normal font-medium hover:bg-neutral-900 transition-colors flex items-center justify-center gap-2">
+                  프로젝트 보기
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </button>
+              </div>
+              
+              <!-- Graph Placeholder -->
+              <div class="bg-white rounded-2xl shadow-lg p-6 h-[280px] flex items-center justify-center">
+                <div class="text-center">
+                  <svg class="w-16 h-16 mx-auto mb-4 text-neutral-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                  </svg>
+                  <p class="typography-caption-1 text-neutral-500">예산 추이 그래프</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Row 2: Three Feature Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <!-- Feature 1 -->
+          <div class="bg-neutral-50 rounded-2xl p-6 md:p-8 lg:p-10 flex flex-col min-h-[300px] md:min-h-[367px]" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+            <div class="w-9 h-9 bg-neutral-100 rounded-lg flex items-center justify-center mb-8">
+              <svg class="w-5 h-5 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+              </svg>
+            </div>
+            
+            <div class="mt-auto">
+              <h3 class="typography-title-3 font-medium mb-3">실시간 예산 모니터링</h3>
+              <p class="typography-body-1-reading font-light">
+                팀, 협력사, 카테고리별 지출 현황을<br>
+                실시간으로 명확하게 확인할 수 있습니다.<br>
+                모든 정보를 한눈에 파악하세요.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Feature 2 -->
+          <div class="bg-neutral-50 rounded-2xl p-6 md:p-8 lg:p-10 flex flex-col min-h-[300px] md:min-h-[367px]" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+            <div class="w-9 h-9 bg-neutral-100 rounded-lg flex items-center justify-center mb-8">
+              <svg class="w-5 h-5 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+              </svg>
+            </div>
+            
+            <div class="mt-auto">
+              <h3 class="typography-title-3 font-medium mb-3">맞춤형 한도 및 규칙</h3>
+              <p class="typography-body-1-reading font-light">
+                회사 구조에 맞는 예산을 생성하고<br>
+                유연한 한도, 부서별 임계값, 승인 트리거를<br>
+                설정하여 성장과 함께 확장하세요.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Feature 3 -->
+          <div class="bg-neutral-50 rounded-2xl p-6 md:p-8 lg:p-10 flex flex-col min-h-[300px] md:min-h-[367px]" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+            <div class="w-9 h-9 bg-neutral-100 rounded-lg flex items-center justify-center mb-8">
+              <svg class="w-5 h-5 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+              </svg>
+            </div>
+            
+            <div class="mt-auto">
+              <h3 class="typography-title-3 font-medium mb-3">조기 경고 알림</h3>
+              <p class="typography-body-1-reading font-light">
+                예산이 주요 임계값에 도달하면 알림을 받아<br>
+                조기에 대응하고, 지출을 조정하거나,<br>
+                한도 초과 전에 개입할 수 있습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Report Engine Section -->
+  <section class="py-16 md:py-24 lg:py-32 bg-white">
+    <div class="container-tight mx-auto px-4 md:px-6 lg:px-8 xl:px-12">
+      <!-- Container with rounded corners -->
+      <div class="rounded-2xl">
+        <!-- Row 1: Left Column with heading + Right Column with report cards -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-5">
+          <!-- Left Column (8/12) -->
+          <div class="lg:col-span-8 bg-neutral-50 rounded-2xl p-8 md:p-16 flex flex-col justify-between min-h-[650px]" data-aos="fade-up" data-aos-duration="1000">
+            <!-- Heading Wrapper -->
+            <div>
+              <div class="inline-flex items-center gap-3 px-3 py-2 bg-blue-lightest rounded-lg mb-6">
+                <svg class="w-4 h-4 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                <span class="typography-caption-1 font-light">리포트 엔진</span>
+              </div>
+              
+              <h2 class="typography-display-2 font-light mb-8 md:text-[58px] md:leading-[69.6px]">
+                데이터를 즉시<br>
+                인사이트로 전환하세요
+              </h2>
+            </div>
+            
+            <!-- Text Wrapper -->
+            <div>
+              <p class="typography-heading-1 font-light mb-8 max-w-xl">
+                재고 회전율부터 투자자용 리포트까지<br>
+                ONEDNS가 의사결정을 더 빠르게 만드는 리포트를 생성합니다.
+              </p>
+              
+              <a href="#contact" class="inline-flex items-center justify-center px-9 py-4 bg-black text-white rounded-full typography-body-1-reading font-light hover:bg-neutral-900 transition-colors">
+                데모 예약하기
+              </a>
+            </div>
+          </div>
+          
+          <!-- Right Column (4/12) - Report Cards -->
+          <div class="lg:col-span-4 bg-neutral-100 rounded-2xl p-8 md:p-16 flex items-center justify-center min-h-[650px]" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <div class="w-full max-w-lg bg-white rounded-2xl shadow-xl p-6">
+              <!-- Header -->
+              <div class="flex justify-between items-center mb-6">
+                <h3 class="typography-body-1-reading font-medium">저장된 리포트</h3>
+                <div class="flex gap-2">
+                  <button class="w-9 h-9 rounded-full bg-neutral-200 flex items-center justify-center hover:bg-neutral-300 transition-colors">
+                    <svg class="w-4 h-4 text-neutral-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                  </button>
+                  <button class="w-9 h-9 rounded-full bg-neutral-200 flex items-center justify-center hover:bg-neutral-300 transition-colors">
+                    <svg class="w-4 h-4 text-neutral-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              
+              <!-- Report Cards List -->
+              <div class="space-y-3 mb-6">
+                <!-- Report Card 1 -->
+                <div class="border border-neutral-100 rounded-2xl overflow-hidden">
+                  <div class="bg-neutral-50 px-4 py-3 flex items-center gap-3">
+                    <div class="w-2.5 h-2.5 rounded-full bg-purple-500"></div>
+                    <span class="typography-label-1-reading">재고 분석</span>
+                  </div>
+                  <div class="p-4 bg-white">
+                    <div class="flex justify-between items-start mb-2">
+                      <div>
+                        <h4 class="typography-body-1-normal font-medium mb-1">재고 회전율 리포트 - Q2</h4>
+                        <p class="typography-caption-2 text-neutral-600">2025년 7월 18일</p>
+                      </div>
+                      <div class="flex gap-2">
+                        <button class="w-9 h-9 rounded-full border border-neutral-200 flex items-center justify-center hover:bg-neutral-50 transition-colors">
+                          <svg class="w-4 h-4 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path>
+                          </svg>
+                        </button>
+                        <button class="w-9 h-9 rounded-full border border-neutral-200 flex items-center justify-center hover:bg-neutral-50 transition-colors">
+                          <svg class="w-4 h-4 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Report Card 2 -->
+                <div class="border border-neutral-100 rounded-2xl overflow-hidden">
+                  <div class="bg-neutral-50 px-4 py-3 flex items-center gap-3">
+                    <div class="w-2.5 h-2.5 rounded-full bg-orange-500"></div>
+                    <span class="typography-label-1-reading">협력사 관리</span>
+                  </div>
+                  <div class="p-4 bg-white">
+                    <div class="flex justify-between items-start mb-2">
+                      <div>
+                        <h4 class="typography-body-1-normal font-medium mb-1">협력사 지출 리포트 - 4월 2025</h4>
+                        <p class="typography-caption-2 text-neutral-600">2025년 6월 1일</p>
+                      </div>
+                      <div class="flex gap-2">
+                        <button class="w-9 h-9 rounded-full border border-neutral-200 flex items-center justify-center hover:bg-neutral-50 transition-colors">
+                          <svg class="w-4 h-4 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path>
+                          </svg>
+                        </button>
+                        <button class="w-9 h-9 rounded-full border border-neutral-200 flex items-center justify-center hover:bg-neutral-50 transition-colors">
+                          <svg class="w-4 h-4 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Generate Report Button -->
+              <button class="w-full px-6 py-3 bg-black text-white rounded-full typography-label-1-reading font-medium hover:bg-neutral-900 transition-colors flex items-center justify-center gap-2">
+                리포트 생성하기
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Row 2: Three Feature Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <!-- Feature 1 -->
+          <div class="bg-neutral-50 rounded-2xl p-6 md:p-8 lg:p-10 flex flex-col min-h-[280px] md:min-h-[340px]" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+            <div class="w-9 h-9 bg-neutral-100 rounded-lg flex items-center justify-center mb-8">
+              <svg class="w-5 h-5 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path>
+              </svg>
+            </div>
+            
+            <div class="mt-auto">
+              <h3 class="typography-title-3 font-medium mb-3">원클릭 리포트 생성</h3>
+              <p class="typography-body-1-reading font-light">
+                필터, 기간, 지표를 선택하면<br>
+                데이터를 명확하고 공유 가능한 형식의<br>
+                일관된 리포트로 자동 편집합니다.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Feature 2 -->
+          <div class="bg-neutral-50 rounded-2xl p-6 md:p-8 lg:p-10 flex flex-col min-h-[280px] md:min-h-[340px]" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+            <div class="w-9 h-9 bg-neutral-100 rounded-lg flex items-center justify-center mb-8">
+              <svg class="w-5 h-5 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+              </svg>
+            </div>
+            
+            <div class="mt-auto">
+              <h3 class="typography-title-3 font-medium mb-3">자동화된 인사이트</h3>
+              <p class="typography-body-1-reading font-light">
+                운영 데이터에서 트렌드, 변화, 불일치를<br>
+                자동으로 감지하고 수동 분석 없이<br>
+                명확한 시사점으로 제공합니다.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Feature 3 -->
+          <div class="bg-neutral-50 rounded-2xl p-6 md:p-8 lg:p-10 flex flex-col min-h-[280px] md:min-h-[340px]" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+            <div class="w-9 h-9 bg-neutral-100 rounded-lg flex items-center justify-center mb-8">
+              <svg class="w-5 h-5 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"></path>
+              </svg>
+            </div>
+            
+            <div class="mt-auto">
+              <h3 class="typography-title-3 font-medium mb-3">다양한 내보내기 형식</h3>
+              <p class="typography-body-1-reading font-light">
+                대상에 맞는 형식으로 리포트를 다운로드하거나<br>
+                공유하세요 — PDF부터 CSV,<br>
+                실시간 Google Sheets까지 지원합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Management Features Section -->
+  <section class="py-16 md:py-24 lg:py-32 bg-neutral-50">
+    <div class="container-tight mx-auto px-4 md:px-6 lg:px-8 xl:px-12">
+      <!-- Feature 1: Smart Approvals (Image Left, Text Right) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-5 opacity-60" data-aos="fade-up" data-aos-duration="1000">
+        <!-- Left Column - Image (8/12) -->
+        <div class="lg:col-span-8 bg-neutral-200 rounded-2xl min-h-[400px] md:min-h-[650px] flex items-center justify-center">
+          <div class="text-center">
+            <div class="w-20 h-20 mx-auto mb-4 bg-neutral-400 rounded-lg"></div>
+            <p class="typography-caption-1 text-neutral-600">승인 플로우 이미지</p>
+          </div>
+        </div>
+        
+        <!-- Right Column - Text (4/12) -->
+        <div class="lg:col-span-4 bg-neutral-100 rounded-2xl p-6 md:p-12 lg:p-16 flex flex-col justify-between min-h-[500px] md:min-h-[650px]">
+          <!-- Heading Wrapper -->
+          <div>
+            <div class="inline-flex items-center gap-3 px-3 py-2 bg-neutral-200 rounded-lg mb-6">
+              <svg class="w-4 h-4 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span class="typography-caption-1 font-light">스마트 승인</span>
+            </div>
+            
+            <h2 class="typography-display-2 font-light mb-8 md:text-[58px] md:leading-[69.6px]">
+              승인을 빠르게,<br>
+              혼란은 줄이세요
+            </h2>
+          </div>
+          
+          <!-- Text Wrapper -->
+          <div>
+            <p class="typography-heading-1 font-light mb-8 max-w-xl">
+              팀, 금액, 협력사별로 맞춤 승인 규칙을 설정하고<br>
+              끝없는 이메일 없이 업무를 진행하세요.
+            </p>
+            
+            <a href="#contact" class="inline-flex items-center justify-center px-9 py-4 bg-black text-white rounded-full typography-body-1-reading font-light hover:bg-neutral-900 transition-colors">
+              데모 예약하기
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Feature 2: Vendor Oversight (Text Left, Image Right) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-5 opacity-60" data-aos="fade-up" data-aos-duration="1000">
+        <!-- Left Column - Text (4/12) -->
+        <div class="lg:col-span-4 bg-neutral-100 rounded-2xl p-6 md:p-12 lg:p-16 flex flex-col justify-between min-h-[500px] md:min-h-[650px]">
+          <!-- Heading Wrapper -->
+          <div>
+            <div class="inline-flex items-center gap-3 px-3 py-2 bg-neutral-200 rounded-lg mb-6">
+              <svg class="w-4 h-4 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+              <span class="typography-caption-1 font-light">협력사 관리</span>
+            </div>
+            
+            <h2 class="typography-display-2 font-light mb-8 md:text-[58px] md:leading-[69.6px]">
+              모든 협력사를 파악하고<br>
+              리스크를 감지하세요
+            </h2>
+          </div>
+          
+          <!-- Text Wrapper -->
+          <div>
+            <p class="typography-heading-1 font-light mb-8 max-w-xl">
+              협력사 사용 현황을 추적하고, 중복을 감지하며,<br>
+              명세서를 일일이 확인하지 않고 지출을 비교하세요.
+            </p>
+            
+            <a href="#contact" class="inline-flex items-center justify-center px-9 py-4 bg-black text-white rounded-full typography-body-1-reading font-light hover:bg-neutral-900 transition-colors">
+              데모 예약하기
+            </a>
+          </div>
+        </div>
+        
+        <!-- Right Column - Image (8/12) -->
+        <div class="lg:col-span-8 bg-neutral-200 rounded-2xl min-h-[400px] md:min-h-[650px] flex items-center justify-center">
+          <div class="text-center">
+            <div class="w-20 h-20 mx-auto mb-4 bg-neutral-400 rounded-lg"></div>
+            <p class="typography-caption-1 text-neutral-600">협력사 대시보드 이미지</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Feature 3: Role Management (Image Left, Text Right) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 opacity-60" data-aos="fade-up" data-aos-duration="1000">
+        <!-- Left Column - Image (8/12) -->
+        <div class="lg:col-span-8 bg-neutral-200 rounded-2xl min-h-[400px] md:min-h-[650px] flex items-center justify-center">
+          <div class="text-center">
+            <div class="w-20 h-20 mx-auto mb-4 bg-neutral-400 rounded-lg"></div>
+            <p class="typography-caption-1 text-neutral-600">권한 관리 이미지</p>
+          </div>
+        </div>
+        
+        <!-- Right Column - Text (4/12) -->
+        <div class="lg:col-span-4 bg-neutral-100 rounded-2xl p-6 md:p-12 lg:p-16 flex flex-col justify-between min-h-[500px] md:min-h-[650px]">
+          <!-- Heading Wrapper -->
+          <div>
+            <div class="inline-flex items-center gap-3 px-3 py-2 bg-neutral-200 rounded-lg mb-6">
+              <svg class="w-4 h-4 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+              </svg>
+              <span class="typography-caption-1 font-light">역할 관리</span>
+            </div>
+            
+            <h2 class="typography-display-2 font-light mb-8 md:text-[58px] md:leading-[69.6px]">
+              모든 사용자에게<br>
+              적절한 접근 권한을
+            </h2>
+          </div>
+          
+          <!-- Text Wrapper -->
+          <div>
+            <p class="typography-heading-1 font-light mb-8 max-w-xl">
+              ONEDNS의 역할 및 권한 시스템으로<br>
+              창업자든 운영 책임자든 안전하고 간편하며<br>
+              확장 가능한 협업을 실현하세요.
+            </p>
+            
+            <a href="#contact" class="inline-flex items-center justify-center px-9 py-4 bg-black text-white rounded-full typography-body-1-reading font-light hover:bg-neutral-900 transition-colors">
+              데모 예약하기
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-16 md:py-24 lg:py-32 bg-white">
+    <div class="container-tight mx-auto px-4 md:px-6 lg:px-8 xl:px-12">
+      <!-- Heading Wrapper -->
+      <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="1000">
+        <h2 class="typography-display-1 font-medium mb-6">
+          ONEDNS와 함께한 변화 —<br>
+          실제 고객사의 이야기
+        </h2>
+        <p class="typography-headline-1 font-light">
+          ONEDNS가 물류 운영 책임자들의<br>
+          효율성 향상을 어떻게 돕고 있는지 들어보세요.
+        </p>
+      </div>
+      
+      <!-- Testimonial Card -->
+      <div class="bg-neutral-100 rounded-2xl p-8 md:p-12 lg:p-16" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+        <!-- Top Row: Author Info and Logo -->
+        <div class="flex justify-between items-start mb-12">
+          <!-- Author Info -->
+          <div class="flex items-start gap-4">
+            <div class="w-25 h-25 bg-neutral-300 rounded-full flex-shrink-0"></div>
+            <div class="mt-4">
+              <p class="typography-label-1-reading font-normal mb-1">김민지</p>
+              <p class="typography-label-1-reading font-light text-neutral-600">물류 운영 본부장</p>
+            </div>
+          </div>
+          
+          <!-- Company Logo Placeholder -->
+          <div class="w-48 h-12 bg-neutral-300 rounded-lg"></div>
+        </div>
+        
+        <!-- Quote -->
+        <div class="mb-12">
+          <p class="typography-display-3 font-light leading-relaxed md:text-[40px] md:leading-[48px]">
+            "ONEDNS 도입 후 부서 간 재고 현황을 실시간으로 파악할 수 있게 되었습니다. 첫 주에만 세 건의 재고 부족 상황을 사전에 방지했고, 이제 모든 의사결정이 실시간 데이터를 기반으로 이루어집니다."
+          </p>
+        </div>
+        
+        <!-- Divider -->
+        <div class="border-t border-neutral-300 mb-8"></div>
+        
+        <!-- Bottom Row: Metrics and Navigation -->
+        <div class="flex justify-between items-end flex-wrap gap-8">
+          <!-- Metrics -->
+          <div class="flex gap-12 flex-wrap">
+            <div>
+              <p class="typography-title-3 font-medium mb-2">37%</p>
+              <p class="typography-body-1-reading font-light text-neutral-600" style="opacity: 0.5;">재고 오차 감소</p>
+            </div>
+            <div>
+              <p class="typography-title-3 font-medium mb-2">2배</p>
+              <p class="typography-body-1-reading font-light text-neutral-600" style="opacity: 0.5;">출고 승인 속도 개선</p>
+            </div>
+          </div>
+          
+          <!-- Navigation Arrows -->
+          <div class="flex gap-3">
+            <button class="w-11 h-11 rounded-full border border-neutral-300 bg-neutral-100 flex items-center justify-center hover:bg-neutral-200 transition-colors">
+              <svg class="w-4 h-4 text-neutral-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+              </svg>
+            </button>
+            <button class="w-11 h-11 rounded-full border border-neutral-300 bg-neutral-100 flex items-center justify-center hover:bg-neutral-200 transition-colors">
+              <svg class="w-4 h-4 text-neutral-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-16 md:py-24 lg:py-32 bg-neutral-50">
+    <div class="container-tight mx-auto px-4 md:px-6 lg:px-8 xl:px-12">
+      <!-- Heading Wrapper -->
+      <div class="mb-16" data-aos="fade-up" data-aos-duration="1000">
+        <h2 class="typography-display-1 font-medium mb-6">
+          자주 묻는<br>
+          질문
+        </h2>
+        <p class="typography-heading-1 font-light max-w-md">
+          ONEDNS 도입 및 일상적인 사용에 대한<br>
+          일반적인 질문에 대한 답변입니다.
+        </p>
+      </div>
+      
+      <!-- Container: CTA Card + FAQ List -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        <!-- Left: CTA Card (5/12) -->
+        <div class="lg:col-span-5 bg-gradient-to-br from-neutral-700 to-neutral-900 rounded-2xl p-8 md:p-10 lg:p-12 flex flex-col justify-between min-h-[400px] md:min-h-[522px]" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+          <!-- Top Content -->
+          <div>
+            <div class="w-16 h-16 bg-white/20 rounded-full mb-8"></div>
+            
+            <h3 class="typography-display-3 font-light text-white mb-6 md:text-[40px] md:leading-[48px]">
+              데모 미팅 예약하기
+            </h3>
+            
+            <p class="typography-body-1-reading font-light text-white/80 mb-8">
+              현재 운영 환경에 대해 이야기하고<br>
+              ONEDNS가 물류 운영을 어떻게 단순화할 수 있는지<br>
+              알아보세요.
+            </p>
+            
+            <a href="#contact" class="inline-flex items-center justify-center px-9 py-4 bg-white text-black rounded-full typography-body-1-reading font-light hover:bg-neutral-100 transition-colors">
+              미팅 예약하기
+            </a>
+          </div>
+          
+          <!-- Bottom: Email Contact -->
+          <div class="mt-12">
+            <p class="typography-body-1-reading font-light text-white/80 mb-2">
+              이메일을 선호하시나요? 연락 주세요:
+            </p>
+            <a href="mailto:hello@onedns.co.kr" class="typography-body-1-normal font-medium text-white hover:text-white/80 transition-colors">
+              hello@onedns.co.kr
+            </a>
+          </div>
+        </div>
+        
+        <!-- Right: FAQ List (7/12) -->
+        <div class="lg:col-span-7 space-y-0">
+          <!-- FAQ Item 1 -->
+          <div class="faq-item border-t border-neutral-200 py-8 transition-colors" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+            <button class="w-full text-left flex justify-between items-center cursor-pointer hover:opacity-80 transition-opacity" onclick="toggleFAQ(this)">
+              <h4 class="typography-heading-1 font-normal pr-8">
+                ONEDNS가 기존 물류 시스템을 대체하나요?
+              </h4>
+              <svg class="faq-icon w-5 h-5 text-neutral-900 flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0;">
+              <div class="pt-6 pr-12">
+                <p class="typography-body-1-reading font-light text-neutral-700 leading-relaxed">
+                  ONEDNS는 기존 시스템을 대체하는 것이 아니라 함께 사용할 수 있도록 설계되었습니다. 
+                  ERP, WMS 등 기존 시스템과 API로 연동하여 데이터를 동기화하고, 
+                  물류 운영의 가시성과 효율성을 높이는 역할을 합니다. 
+                  필요에 따라 독립적으로 사용하거나 기존 시스템과 통합하여 사용할 수 있습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- FAQ Item 2 -->
+          <div class="faq-item border-t border-neutral-200 py-8 transition-colors" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+            <button class="w-full text-left flex justify-between items-center cursor-pointer hover:opacity-80 transition-opacity" onclick="toggleFAQ(this)">
+              <h4 class="typography-heading-1 font-normal pr-8">
+                온보딩은 얼마나 걸리나요?
+              </h4>
+              <svg class="faq-icon w-5 h-5 text-neutral-900 flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0;">
+              <div class="pt-6 pr-12">
+                <p class="typography-body-1-reading font-light text-neutral-700 leading-relaxed">
+                  일반적으로 2-4주 정도 소요됩니다. 
+                  초기 설정과 데이터 마이그레이션에 1-2주, 팀 교육과 시스템 안정화에 1-2주가 필요합니다. 
+                  브랜드의 규모와 기존 데이터 상태에 따라 기간은 달라질 수 있으며, 
+                  전담 온보딩 매니저가 전 과정을 지원하여 빠르고 안정적인 도입을 돕습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- FAQ Item 3 -->
+          <div class="faq-item border-t border-neutral-200 py-8 transition-colors" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+            <button class="w-full text-left flex justify-between items-center cursor-pointer hover:opacity-80 transition-opacity" onclick="toggleFAQ(this)">
+              <h4 class="typography-heading-1 font-normal pr-8">
+                어떤 데이터를 ONEDNS로 가져올 수 있나요?
+              </h4>
+              <svg class="faq-icon w-5 h-5 text-neutral-900 flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0;">
+              <div class="pt-6 pr-12">
+                <p class="typography-body-1-reading font-light text-neutral-700 leading-relaxed">
+                  재고 데이터, 주문 내역, 상품 정보, 고객 정보 등 물류 운영에 필요한 모든 데이터를 가져올 수 있습니다. 
+                  엑셀(CSV, XLSX), ERP 시스템, 전자상거래 플랫폼(네이버 스마트스토어, 쿠팡, 지그재그 등)과의 
+                  연동을 지원하며, REST API를 통해 커스텀 통합도 가능합니다. 
+                  데이터 마이그레이션 과정에서 전담 팀이 데이터 정합성을 검증합니다.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- FAQ Item 4 -->
+          <div class="faq-item border-t border-neutral-200 py-8 transition-colors" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
+            <button class="w-full text-left flex justify-between items-center cursor-pointer hover:opacity-80 transition-opacity" onclick="toggleFAQ(this)">
+              <h4 class="typography-heading-1 font-normal pr-8">
+                사용자 역할 및 권한을 설정할 수 있나요?
+              </h4>
+              <svg class="faq-icon w-5 h-5 text-neutral-900 flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0;">
+              <div class="pt-6 pr-12">
+                <p class="typography-body-1-reading font-light text-neutral-700 leading-relaxed">
+                  네, 세밀한 권한 관리가 가능합니다. 
+                  관리자, 운영자, 협력사, 조회 전용 등 다양한 역할을 정의하고 
+                  각 역할별로 재고 조회, 출고 승인, 데이터 수정 등의 권한을 개별적으로 설정할 수 있습니다. 
+                  특정 센터나 브랜드만 접근 가능하도록 제한할 수도 있어 
+                  멀티 브랜드 운영 시에도 데이터 보안을 유지할 수 있습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- FAQ Item 5 -->
+          <div class="faq-item border-t border-b border-neutral-200 py-8 transition-colors" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
+            <button class="w-full text-left flex justify-between items-center cursor-pointer hover:opacity-80 transition-opacity" onclick="toggleFAQ(this)">
+              <h4 class="typography-heading-1 font-normal pr-8">
+                요금은 어떻게 책정되나요?
+              </h4>
+              <svg class="faq-icon w-5 h-5 text-neutral-900 flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-answer overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0;">
+              <div class="pt-6 pr-12">
+                <p class="typography-body-1-reading font-light text-neutral-700 leading-relaxed">
+                  ONEDNS는 월 처리 물동량(입출고 건수)과 사용하는 기능에 따라 요금이 책정됩니다. 
+                  기본 패키지는 월 500건부터 시작하며, 브랜드 규모에 맞춰 유연하게 확장 가능합니다. 
+                  초기 설정 비용은 없으며, 최소 약정 기간 없이 월 단위로 이용할 수 있습니다. 
+                  정확한 견적은 현재 물동량과 필요한 기능을 확인한 후 맞춤 제안해드립니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="company" class="border-t bg-white">
+    <div class="mx-auto container-tight px-4 md:px-6 lg:px-8 xl:px-12 py-12">
+      <div class="grid grid-cols-2 gap-8 md:grid-cols-6">
+        <div class="hidden md:block md:col-span-1">
+          <div class="flex items-center gap-2">
+            <img src="logo_onedns.svg" alt="ONEDNS" class="h-7 w-auto" />
+          </div>
+        </div>
+        <div>
+          <p class="typography-body-2-normal font-medium mb-3">회사</p>
+          <ul class="space-y-2 typography-body-2-reading">
+            <li><a class="hover:text-black" href="company.html">회사 및 3PL 소개</a></li>
+            <li><a class="hover:text-black" href="#center-intro">센터소개</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="typography-body-2-normal font-medium mb-3">솔루션</p>
+          <ul class="space-y-2 typography-body-2-reading">
+            <li><a class="hover:text-black" href="solution.html#plgo-oms">PLGO OMS</a></li>
+            <li><a class="hover:text-black" href="solution.html#plgo-wms">PLGO WMS</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="typography-body-2-normal font-medium mb-3">인재 채용</p>
+          <ul class="space-y-2 typography-body-2-reading">
+            <li><a class="hover:text-black" href="career.html#team-culture">팀 문화</a></li>
+            <li><a class="hover:text-black" href="career.html#job-openings">채용공고</a></li>
+            <li><a class="hover:text-black" href="career.html#career-faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="typography-body-2-normal font-medium mb-3">소식</p>
+          <ul class="space-y-2 typography-body-2-reading">
+            <li><a class="hover:text-black" href="news.html#notice">공지사항</a></li>
+            <li><a class="hover:text-black" href="news.html#plgo-guide">PLGO 사용 가이드</a></li>
+            <li><a class="hover:text-black" href="news.html#plgo-updates">PLGO 업데이트 소식</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="typography-body-2-normal font-medium mb-3">요금안내</p>
+          <ul class="space-y-2 typography-body-2-reading">
+            <li><a class="hover:text-black" href="pricing.html#pricing-info">요금안내</a></li>
+            <li><a class="hover:text-black" href="pricing.html#quote">물류견적</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="border-t py-6">
+      <div class="mx-auto container-tight px-4 md:px-6 lg:px-8 xl:px-12">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <p class="typography-caption-1 text-left">© 2025 ONEDNS Inc. All rights reserved.</p>
+          <div class="flex flex-wrap items-center gap-2 typography-caption-1">
+            <a href="ethics.html" class="hover:underline">윤리준법 제보</a>
+            <span class="text-gray-400">·</span>
+            <a href="#" class="hover:underline">이용약관</a>
+            <span class="text-gray-400">·</span>
+            <a href="#" class="hover:underline">개인정보처리방침</a>
+            <span class="text-gray-400">·</span>
+            <a href="#" class="hover:underline">쿠키정책</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const $ = (s, r=document) => r.querySelector(s);
+      const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+
+      // Header shadow
+      const header = document.querySelector('header.site-header');
+      const onScrollHeader = () => { if (!header) return; header.classList.toggle('shadow-sm', window.scrollY > 8); };
+      onScrollHeader();
+      addEventListener('scroll', onScrollHeader, {passive:true});
+
+      // Mobile menu toggle
+      const mobileMenuBtn = $('#mobileMenuBtn');
+      const mobileMenu = $('#mobileMenu');
+      const mobileMenuOverlay = $('#mobileMenuOverlay');
+      const menuIcon = $('#menuIcon');
+      const closeIcon = $('#closeIcon');
+      let isMenuOpen = false;
+
+      const toggleMobileMenu = () => {
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen) {
+          mobileMenu.classList.remove('translate-x-full');
+          mobileMenuOverlay.classList.remove('opacity-0', 'invisible');
+          mobileMenuOverlay.classList.add('opacity-100', 'visible');
+          menuIcon.classList.add('hidden');
+          closeIcon.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        } else {
+          mobileMenu.classList.add('translate-x-full');
+          mobileMenuOverlay.classList.remove('opacity-100', 'visible');
+          mobileMenuOverlay.classList.add('opacity-0', 'invisible');
+          menuIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+          document.body.style.overflow = '';
+        }
+      };
+
+      const closeMobileMenu = () => {
+        if (isMenuOpen) {
+          toggleMobileMenu();
+        }
+      };
+
+      mobileMenuBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMobileMenu();
+      });
+
+      mobileMenuOverlay?.addEventListener('click', closeMobileMenu);
+
+      // Close menu when clicking on menu links
+      const mobileMenuLinks = $$('#mobileMenu a');
+      mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          setTimeout(closeMobileMenu, 100);
+        });
+      });
+
+      // Smooth anchors
+      $$('a[href^="#"]').forEach(a => {
+        if (!a.closest('#mobileMenu')) {
+          a.addEventListener('click', (e) => {
+            const id = a.getAttribute('href');
+            if (id && id.length > 1) {
+              const t = document.querySelector(id);
+              if (t) { e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }
+            }
+          });
+        }
+      });
+    })();
+  </script>
+
+  <!-- AOS (Animate On Scroll) Library -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-out',
+      once: true,
+      offset: 100
+    });
+
+    // FAQ Toggle Function
+    function toggleFAQ(button) {
+      const faqItem = button.closest('.faq-item');
+      const answer = faqItem.querySelector('.faq-answer');
+      const icon = faqItem.querySelector('.faq-icon');
+      const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+
+      // Close all other FAQs
+      document.querySelectorAll('.faq-item').forEach(item => {
+        if (item !== faqItem) {
+          const otherAnswer = item.querySelector('.faq-answer');
+          const otherIcon = item.querySelector('.faq-icon');
+          otherAnswer.style.maxHeight = '0';
+          otherIcon.style.transform = 'rotate(0deg)';
+        }
+      });
+
+      // Toggle current FAQ
+      if (isOpen) {
+        answer.style.maxHeight = '0';
+        icon.style.transform = 'rotate(0deg)';
+      } else {
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        icon.style.transform = 'rotate(180deg)';
+      }
+    }
+  </script>
+</body>
+</html>
+
