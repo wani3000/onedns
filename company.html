@@ -260,7 +260,7 @@
       </p>
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-20">
         <div class="rounded-2xl p-8 text-left cursor-pointer transition-all duration-300 hover-card" style="background-color: #F7F7F8;">
-          <div class="w-12 h-12 mb-4 flex items-center justify-center rounded-xl icon-bg transition-all duration-300" style="background-color: #EAEBEC;">
+          <div class="w-12 h-12 mb-4 flex items-center justify-center rounded-xl icon-bg transition-all duration-300 bg-white">
             <svg class="w-7 h-7 icon-color transition-all duration-300" style="color: #196DF6;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
             </svg>
@@ -268,7 +268,7 @@
           <p class="typography-body-1-reading card-text transition-all duration-300">브랜드, 셀러, 협력사를 위한 유연한 운영 구조</p>
         </div>
         <div class="rounded-2xl p-8 text-left cursor-pointer transition-all duration-300 hover-card" style="background-color: #F7F7F8;">
-          <div class="w-12 h-12 mb-4 flex items-center justify-center rounded-xl icon-bg transition-all duration-300" style="background-color: #EAEBEC;">
+          <div class="w-12 h-12 mb-4 flex items-center justify-center rounded-xl icon-bg transition-all duration-300 bg-white">
             <svg class="w-7 h-7 icon-color transition-all duration-300" style="color: #196DF6;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
             </svg>
@@ -276,7 +276,7 @@
           <p class="typography-body-1-reading card-text transition-all duration-300">성장하는 브랜드를 위한 확장 가능한 풀필먼트 시스템</p>
         </div>
         <div class="rounded-2xl p-8 text-left cursor-pointer transition-all duration-300 hover-card" style="background-color: #F7F7F8;">
-          <div class="w-12 h-12 mb-4 flex items-center justify-center rounded-xl icon-bg transition-all duration-300" style="background-color: #EAEBEC;">
+          <div class="w-12 h-12 mb-4 flex items-center justify-center rounded-xl icon-bg transition-all duration-300 bg-white">
             <svg class="w-7 h-7 icon-color transition-all duration-300" style="color: #196DF6;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
@@ -284,7 +284,7 @@
           <p class="typography-body-1-reading card-text transition-all duration-300">패션 산업에 특화된 운영 전문성과 검증된 품질관리</p>
         </div>
         <div class="rounded-2xl p-8 text-left cursor-pointer transition-all duration-300 hover-card" style="background-color: #F7F7F8;">
-          <div class="w-12 h-12 mb-4 flex items-center justify-center rounded-xl icon-bg transition-all duration-300" style="background-color: #EAEBEC;">
+          <div class="w-12 h-12 mb-4 flex items-center justify-center rounded-xl icon-bg transition-all duration-300 bg-white">
             <svg class="w-7 h-7 icon-color transition-all duration-300" style="color: #196DF6;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
             </svg>
@@ -504,13 +504,13 @@
         card.addEventListener('mouseenter', () => {
           card.style.backgroundColor = '#EAEBEC'; // neutral-97
           card.querySelector('.card-text').style.color = '#46474C';
-          card.querySelector('.icon-bg').style.backgroundColor = '#DBDCDF'; // neutral-95
+          card.querySelector('.icon-bg').style.backgroundColor = '#FFFFFF'; // white
           card.querySelector('.icon-color').style.color = '#196DF6';
         });
         card.addEventListener('mouseleave', () => {
           card.style.backgroundColor = '#F7F7F8'; // neutral-99
           card.querySelector('.card-text').style.color = '#46474C';
-          card.querySelector('.icon-bg').style.backgroundColor = '#EAEBEC'; // neutral-97
+          card.querySelector('.icon-bg').style.backgroundColor = '#FFFFFF'; // white
           card.querySelector('.icon-color').style.color = '#196DF6';
         });
       });
