@@ -502,15 +502,15 @@
       const hoverCards = $$('.hover-card');
       hoverCards.forEach(card => {
         card.addEventListener('mouseenter', () => {
-          card.style.backgroundColor = '#0F0F10';
-          card.querySelector('.card-text').style.color = '#FFFFFF';
-          card.querySelector('.icon-bg').style.backgroundColor = 'rgba(255,255,255,0.15)';
-          card.querySelector('.icon-color').style.color = '#FFFFFF';
+          card.style.backgroundColor = '#EAEBEC'; // neutral-97
+          card.querySelector('.card-text').style.color = '#46474C';
+          card.querySelector('.icon-bg').style.backgroundColor = '#DBDCDF'; // neutral-95
+          card.querySelector('.icon-color').style.color = '#196DF6';
         });
         card.addEventListener('mouseleave', () => {
-          card.style.backgroundColor = '#F7F7F8';
+          card.style.backgroundColor = '#F7F7F8'; // neutral-99
           card.querySelector('.card-text').style.color = '#46474C';
-          card.querySelector('.icon-bg').style.backgroundColor = '#EAEBEC';
+          card.querySelector('.icon-bg').style.backgroundColor = '#EAEBEC'; // neutral-97
           card.querySelector('.icon-color').style.color = '#196DF6';
         });
       });
