@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>회사소개 | ONEDNS – 데이터로 설계하는 의류 물류의 새로운 기준</title>
+  <title>이용약관 | ONEDNS</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -14,19 +14,6 @@
           black: '#0F0F10',
           white: '#F7F7F8',
           neutral: {
-            50: '#F7F7F8',
-            100: '#F4F4F5',
-            200: '#EAEBEC',
-            300: '#E1E2E4',
-            400: '#DBDCDF',
-            500: '#C2C4C8',
-            600: '#AEB0B6',
-            700: '#989BA2',
-            800: '#878A93',
-            900: '#70737C',
-            950: '#5A5C63',
-          },
-          gray: {
             50: '#F7F7F8',
             100: '#F4F4F5',
             200: '#EAEBEC',
@@ -53,10 +40,8 @@
       }
     }
   </script>
-  <!-- Pretendard Font (CDN + Fallback) -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     :root{
       --cool-neutral-99:#F7F7F8;
@@ -80,7 +65,6 @@
       --cool-neutral-10:#171719;
       --cool-neutral-7:#141415;
       --cool-neutral-5:#0F0F10;
-      /* ONEDNS Blue Colors */
       --onedns-blue-main:#196DF6;
       --onedns-blue-light:#CFE4FF;
       --onedns-blue-lightest:#F1F7FF;
@@ -97,14 +81,11 @@
     .nav-dropdown-menu{position:absolute;top:100%;left:0;margin-top:8px;min-width:180px;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity 0.2s ease,transform 0.2s ease,visibility 0.2s ease;background:white;border:1px solid rgba(0,0,0,0.1);border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.1);padding:8px 0;z-index:50}
     .nav-dropdown-item{display:block;padding:10px 16px;color:#374151;text-decoration:none;font-size:14px;white-space:nowrap;transition:background 0.15s ease}
     .nav-dropdown-item:hover{background:#f3f4f6;color:#111827}
-    /* Typography Styles */
-    /* Titles - #0F0F10 */
     .typography-display-1{font-size:56px;line-height:72px;letter-spacing:-0.0319em;color:#0F0F10}
     .typography-display-2{font-size:40px;line-height:52px;letter-spacing:-0.0282em;color:#0F0F10}
     .typography-title-1{font-size:36px;line-height:48px;letter-spacing:-0.027em;color:#0F0F10}
     .typography-title-2{font-size:28px;line-height:38px;letter-spacing:-0.0236em;color:#0F0F10}
     .typography-title-3{font-size:24px;line-height:32px;letter-spacing:-0.023em;color:#0F0F10}
-    /* Subtitles and Body - #46474C */
     .typography-heading-1{font-size:22px;line-height:30px;letter-spacing:-0.0194em;color:#46474C}
     .typography-heading-2{font-size:20px;line-height:28px;letter-spacing:-0.012em;color:#46474C}
     .typography-headline-1{font-size:18px;line-height:26px;letter-spacing:-0.002em;color:#46474C}
@@ -131,7 +112,7 @@
   </style>
 </head>
 <body class="bg-white text-neutral-900">
-  <!-- Top Bar -->
+  <!-- Header (same as ethics.html) -->
   <header class="site-header sticky top-0 z-50 border-b border-neutral-200/60 bg-white/80 glass">
     <div class="mx-auto container-tight px-4 md:px-6 lg:px-8 xl:px-12 py-4 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-2">
@@ -146,7 +127,6 @@
         </svg>
       </button>
       <nav id="mainNav" class="hidden md:flex items-center gap-1 text-sm text-neutral-700">
-        <!-- 1. 회사 -->
         <div class="nav-dropdown">
           <a href="company.html" class="px-3 py-2 typography-label-1-normal hover:text-black cursor-pointer flex items-center gap-1">
             회사
@@ -156,11 +136,9 @@
           </a>
           <div class="nav-dropdown-menu">
             <a href="company.html" class="nav-dropdown-item">회사 및 3PL 소개</a>
-            <a href="#center-intro" class="nav-dropdown-item">센터소개</a>
+            <a href="company.html#center-intro" class="nav-dropdown-item">센터소개</a>
           </div>
         </div>
-        
-        <!-- 2. 솔루션 -->
         <div class="nav-dropdown">
           <a href="solution.html" class="px-3 py-2 typography-label-1-normal hover:text-black cursor-pointer flex items-center gap-1">
             솔루션
@@ -173,8 +151,6 @@
             <a href="solution.html#plgo-wms" class="nav-dropdown-item">PLGO WMS</a>
           </div>
         </div>
-        
-        <!-- 3. 인재 채용 -->
         <div class="nav-dropdown">
           <a href="career.html" class="px-3 py-2 typography-label-1-normal hover:text-black cursor-pointer flex items-center gap-1">
             인재 채용
@@ -188,8 +164,6 @@
             <a href="career.html#career-faq" class="nav-dropdown-item">FAQ</a>
           </div>
         </div>
-        
-        <!-- 4. 소식 -->
         <div class="nav-dropdown">
           <a href="news.html" class="px-3 py-2 typography-label-1-normal hover:text-black cursor-pointer flex items-center gap-1">
             소식
@@ -203,8 +177,6 @@
             <a href="news.html#plgo-updates" class="nav-dropdown-item">PLGO 업데이트 소식</a>
           </div>
         </div>
-        
-        <!-- 5. 요금안내 -->
         <div class="nav-dropdown">
           <a href="pricing.html" class="px-3 py-2 typography-label-1-normal hover:text-black cursor-pointer flex items-center gap-1">
             요금안내
@@ -217,15 +189,11 @@
             <a href="pricing.html#quote" class="nav-dropdown-item">물류견적</a>
           </div>
         </div>
-        
-        <!-- 7. 서비스 신청 -->
-            <a href="sales.html" class="px-4 py-2 typography-label-1-normal text-white transition-opacity hover:opacity-90" style="background-color: #196DF6; border-radius: 300px;">서비스 신청</a>
+        <a href="sales.html" class="px-4 py-2 typography-label-1-normal text-white transition-opacity hover:opacity-90" style="background-color: #196DF6; border-radius: 300px;">서비스 신청</a>
       </nav>
     </div>
-    <!-- Mobile Menu (hidden on desktop) -->
     <div id="mobileMenu" class="md:hidden fixed inset-0 z-40 transform translate-x-full transition-transform duration-300 ease-in-out" style="top: 73px; background-color: #FFFFFF !important; width: 100%; height: calc(100vh - 73px);">
       <div class="flex flex-col p-6 space-y-4 overflow-y-auto" style="background-color: #FFFFFF;">
-        <!-- Mobile Menu Items -->
         <a href="company.html" class="px-4 py-3 typography-label-1-normal hover:bg-neutral-100 rounded-lg" style="color: #46474C;">회사</a>
         <a href="solution.html" class="px-4 py-3 typography-label-1-normal hover:bg-neutral-100 rounded-lg" style="color: #46474C;">솔루션</a>
         <a href="career.html" class="px-4 py-3 typography-label-1-normal hover:bg-neutral-100 rounded-lg" style="color: #46474C;">인재 채용</a>
@@ -234,142 +202,98 @@
         <a href="sales.html" class="px-4 py-3 typography-label-1-normal text-white hover:opacity-90 rounded-lg text-center" style="background-color: #196DF6; border-radius: 300px; color: white !important;">서비스 신청</a>
       </div>
     </div>
-    <!-- Mobile Menu Overlay -->
     <div id="mobileMenuOverlay" class="md:hidden fixed inset-0 bg-black bg-opacity-50 z-30 opacity-0 invisible transition-opacity duration-300" style="top: 73px;"></div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="w-full bg-black text-white py-40" data-aos="fade-up" data-aos-duration="1000">
-    <div class="container-tight px-4 md:px-6 lg:px-8 xl:px-12 text-left">
-      <h1 class="text-6xl font-light leading-tight mb-6">데이터로 설계하는<br>의류 물류의 새로운 기준</h1>
-      <p class="text-lg leading-relaxed text-gray-200">
-        ONEDNS는 입고부터 검품, 다림질, 행거 관리, 포장과 출고까지<br>
-        의류 물류 전 과정을 하나의 통합된 프로세스로 관리합니다.<br>
-        정확한 데이터와 표준화된 시스템으로, 브랜드의 성장을 지원합니다.
-      </p>
-    </div>
-  </section>
+  <!-- Content -->
+  <section class="w-full bg-white py-20 md:py-32">
+    <div class="container-tight mx-auto px-4 md:px-6 lg:px-8 xl:px-12">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="typography-display-2 font-medium mb-4">이용약관</h1>
+        <p class="typography-body-2-normal text-neutral-600 mb-12">시행일: 2025년 1월 1일</p>
+        
+        <div class="typography-body-1-reading space-y-8">
+          <div>
+            <h2 class="typography-title-3 font-semibold mb-4">제1조 (목적)</h2>
+            <p>본 약관은 ONEDNS(이하 "회사")가 제공하는 물류 서비스 및 관련 제반 서비스의 이용과 관련하여 회사와 이용자의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.</p>
+          </div>
 
-  <!-- Intro Section -->
-  <section class="py-32 bg-white">
-    <div class="container-tight px-4 md:px-6 lg:px-8 xl:px-12 text-center" data-aos="fade-up" data-aos-duration="1000">
-      <h2 class="text-5xl font-semibold mb-10">정확하고 투명한 물류 시스템,<br>ONEDNS가 만들어갑니다.</h2>
-      <p class="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
-        복잡한 수작업과 비효율적인 관리 구조를 데이터 중심의 프로세스로 바꾸어,<br>
-        브랜드와 고객이 모두 신뢰할 수 있는 물류 환경을 구축합니다.
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-20">
-        <div class="bg-gray-50 rounded-2xl p-8 text-left" data-aos="fade-up" data-aos-delay="100">
-          <div class="bg-black w-12 h-12 mb-4"></div>
-          <p>브랜드, 셀러, 협력사를 위한 유연한 운영 구조</p>
-        </div>
-        <div class="bg-gray-50 rounded-2xl p-8 text-left" data-aos="fade-up" data-aos-delay="200">
-          <div class="bg-black w-12 h-12 mb-4"></div>
-          <p>성장하는 브랜드를 위한 확장 가능한 풀필먼트 시스템</p>
-        </div>
-        <div class="bg-gray-800 text-white rounded-2xl p-8 text-left" data-aos="fade-up" data-aos-delay="300">
-          <div class="bg-white w-12 h-12 mb-4"></div>
-          <p>패션 산업에 특화된 운영 전문성과 검증된 품질관리</p>
-        </div>
-        <div class="bg-gray-50 rounded-2xl p-8 text-left" data-aos="fade-up" data-aos-delay="400">
-          <div class="bg-black w-12 h-12 mb-4"></div>
-          <p>속도와 정확도를 모두 잡은 실시간 데이터 관리</p>
+          <div>
+            <h2 class="typography-title-3 font-semibold mb-4">제2조 (정의)</h2>
+            <p>본 약관에서 사용하는 용어의 정의는 다음과 같습니다:</p>
+            <ul class="list-disc list-inside space-y-2 ml-4 mt-4">
+              <li>"서비스"란 회사가 제공하는 물류 대행, 재고 관리, 배송 관리 등 제반 서비스를 의미합니다.</li>
+              <li>"이용자"란 본 약관에 따라 회사가 제공하는 서비스를 받는 회원 및 비회원을 말합니다.</li>
+              <li>"회원"이란 회사와 서비스 이용계약을 체결하고 이용자 아이디(ID)를 부여받은 자를 말합니다.</li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 class="typography-title-3 font-semibold mb-4">제3조 (약관의 효력 및 변경)</h2>
+            <p>① 본 약관은 서비스를 이용하고자 하는 모든 이용자에 대하여 그 효력을 발생합니다.</p>
+            <p class="mt-2">② 회사는 합리적인 사유가 발생할 경우 관련 법령에 위배되지 않는 범위 내에서 본 약관을 변경할 수 있습니다.</p>
+            <p class="mt-2">③ 회사가 약관을 변경할 경우 적용일자 및 변경사유를 명시하여 현행약관과 함께 서비스 초기화면에 그 적용일자 7일 이전부터 적용일자 전일까지 공지합니다.</p>
+          </div>
+
+          <div>
+            <h2 class="typography-title-3 font-semibold mb-4">제4조 (서비스의 제공)</h2>
+            <p>회사는 다음과 같은 서비스를 제공합니다:</p>
+            <ul class="list-disc list-inside space-y-2 ml-4 mt-4">
+              <li>물류 대행 서비스 (입고, 보관, 출고)</li>
+              <li>재고 관리 시스템 (PLGO WMS)</li>
+              <li>주문 관리 시스템 (PLGO OMS)</li>
+              <li>배송 관리 서비스</li>
+              <li>기타 회사가 추가 개발하거나 제휴계약 등을 통해 제공하는 일체의 서비스</li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 class="typography-title-3 font-semibold mb-4">제5조 (서비스 이용계약의 성립)</h2>
+            <p>① 이용계약은 이용자의 이용신청에 대한 회사의 승낙으로 성립됩니다.</p>
+            <p class="mt-2">② 회사는 다음 각 호에 해당하는 신청에 대하여는 승낙을 하지 않거나 사후에 이용계약을 해지할 수 있습니다:</p>
+            <ul class="list-disc list-inside space-y-2 ml-4 mt-4">
+              <li>실명이 아니거나 타인의 명의를 이용한 경우</li>
+              <li>허위의 정보를 기재하거나, 회사가 제시하는 내용을 기재하지 않은 경우</li>
+              <li>관련 법령에 위배되거나 사회의 안녕질서 혹은 미풍양속을 저해할 목적으로 신청한 경우</li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 class="typography-title-3 font-semibold mb-4">제6조 (개인정보의 보호)</h2>
+            <p>① 회사는 이용자의 개인정보를 보호하기 위하여 정보통신망법 및 개인정보보호법 등 관계 법령에서 정하는 바를 준수합니다.</p>
+            <p class="mt-2">② 회사는 이용자의 개인정보를 본인의 승낙 없이 제3자에게 누설, 배포하지 않습니다.</p>
+          </div>
+
+          <div>
+            <h2 class="typography-title-3 font-semibold mb-4">제7조 (회사의 의무)</h2>
+            <p>① 회사는 관련 법령과 본 약관이 금지하거나 공서양속에 반하는 행위를 하지 않으며 본 약관이 정하는 바에 따라 지속적이고 안정적으로 서비스를 제공하기 위해 노력합니다.</p>
+            <p class="mt-2">② 회사는 이용자가 안전하게 서비스를 이용할 수 있도록 이용자의 개인정보 보호를 위한 보안시스템을 구축합니다.</p>
+          </div>
+
+          <div>
+            <h2 class="typography-title-3 font-semibold mb-4">제8조 (이용자의 의무)</h2>
+            <p>① 이용자는 다음 행위를 하여서는 안 됩니다:</p>
+            <ul class="list-disc list-inside space-y-2 ml-4 mt-4">
+              <li>신청 또는 변경 시 허위 내용의 등록</li>
+              <li>타인의 정보 도용</li>
+              <li>회사가 게시한 정보의 변경</li>
+              <li>회사가 정한 정보 이외의 정보(컴퓨터 프로그램 등) 등의 송신 또는 게시</li>
+              <li>회사 기타 제3자의 저작권 등 지적재산권에 대한 침해</li>
+              <li>회사 기타 제3자의 명예를 손상시키거나 업무를 방해하는 행위</li>
+            </ul>
+          </div>
+
+          <div class="bg-blue-lightest border-l-4 p-6 mt-8" style="border-color: #196DF6;">
+            <p class="typography-body-2-normal">
+              <strong>본 약관에 대한 문의사항이 있으시면 고객센터(support@onedns.co.kr)로 연락 주시기 바랍니다.</strong>
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Numbers Section -->
-  <section class="py-32 bg-gray-50">
-    <div class="container-tight px-4 md:px-6 lg:px-8 xl:px-12 text-center" data-aos="fade-up" data-aos-duration="1000">
-      <h2 class="text-5xl font-semibold mb-6">데이터로 증명하는 효율</h2>
-      <p class="text-lg text-gray-600 mb-16">수치로 보여주는 ONEDNS의 성장과 성과입니다.</p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-        <div class="bg-white rounded-2xl p-10 shadow-sm" data-aos="zoom-in" data-aos-delay="100">
-          <p class="text-gray-500 mb-4">함께 성장 중인 브랜드 수</p>
-          <h3 class="text-6xl font-semibold">50+</h3>
-        </div>
-        <div class="bg-blue-900 text-white rounded-2xl p-10 shadow-sm" data-aos="zoom-in" data-aos-delay="200">
-          <p class="mb-4 opacity-80">누적 처리 의류 수량</p>
-          <h3 class="text-6xl font-semibold">1,200만+</h3>
-        </div>
-        <div class="bg-white rounded-2xl p-10 shadow-sm" data-aos="zoom-in" data-aos-delay="300">
-          <p class="text-gray-500 mb-4">실시간 입·출고 정확도</p>
-          <h3 class="text-6xl font-semibold">99.8%</h3>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Approach Section -->
-  <section class="py-32 bg-white">
-    <div class="container-tight px-4 md:px-6 lg:px-8 xl:px-12 grid md:grid-cols-3 gap-10 items-start">
-      <div class="col-span-2 bg-blue-900 text-white rounded-2xl p-16" data-aos="fade-right">
-        <h2 class="text-5xl font-semibold mb-8">ONEDNS가 바라보는<br>물류의 미래</h2>
-        <p class="text-lg text-gray-200 leading-relaxed">
-          우리는 단순히 의류를 이동시키는 회사를 넘어,<br>
-          브랜드의 신뢰와 고객 경험을 함께 설계하는 파트너가 되고자 합니다.<br>
-          효율, 품질, 데이터를 중심으로 물류의 새로운 표준을 만들어갑니다.
-        </p>
-      </div>
-      <div class="space-y-8">
-        <div class="bg-gray-50 rounded-2xl p-8" data-aos="fade-left" data-aos-delay="100">
-          <div class="bg-black w-9 h-9 mb-3"></div>
-          <h3 class="text-2xl font-semibold mb-2">현실적인 솔루션</h3>
-          <p class="text-gray-600">복잡한 현장의 문제를 데이터로 읽고, 실행 가능한 방식으로 해결합니다.</p>
-        </div>
-        <div class="bg-gray-50 rounded-2xl p-8" data-aos="fade-left" data-aos-delay="200">
-          <div class="bg-black w-9 h-9 mb-3"></div>
-          <h3 class="text-2xl font-semibold mb-2">간결한 변화</h3>
-          <p class="text-gray-600">누구나 이해할 수 있고, 쉽게 도입할 수 있는 구조를 설계합니다.</p>
-        </div>
-        <div class="bg-gray-50 rounded-2xl p-8" data-aos="fade-left" data-aos-delay="300">
-          <div class="bg-black w-9 h-9 mb-3"></div>
-          <h3 class="text-2xl font-semibold mb-2">신뢰 기반 운영</h3>
-          <p class="text-gray-600">투명한 관리와 표준화된 프로세스로 모든 브랜드가 안심할 수 있습니다.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Awards Section -->
-  <section class="py-32 bg-gray-50" data-aos="fade-up" data-aos-duration="1000">
-    <div class="container-tight px-4 md:px-6 lg:px-8 xl:px-12">
-      <h2 class="text-5xl font-semibold mb-12">함께 성장하는 파트너로 인정받고 있습니다</h2>
-      <div class="flex flex-wrap gap-8 mb-16">
-        <div class="flex items-center gap-4" data-aos="zoom-in" data-aos-delay="100">
-          <div class="bg-black w-12 h-12"></div>
-          <p>2024년 패션 물류 혁신기업 선정</p>
-        </div>
-        <div class="flex items-center gap-4" data-aos="zoom-in" data-aos-delay="200">
-          <div class="bg-black w-12 h-12"></div>
-          <p>2025년 서울 스마트 풀필먼트 대상 수상</p>
-        </div>
-        <div class="flex items-center gap-4" data-aos="zoom-in" data-aos-delay="300">
-          <div class="bg-black w-12 h-12"></div>
-          <p>대한상의 물류 효율화 우수기업 선정</p>
-        </div>
-      </div>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-black rounded-2xl h-96" data-aos="fade-up" data-aos-delay="100"></div>
-        <div class="bg-black rounded-2xl h-96" data-aos="fade-up" data-aos-delay="200"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Careers CTA -->
-  <section class="py-32 bg-white text-center" data-aos="fade-up" data-aos-duration="1000">
-    <div class="container-tight px-4 md:px-6 lg:px-8 xl:px-12">
-      <h2 class="text-5xl font-semibold mb-4">함께 더 나은 물류를 만듭니다</h2>
-      <p class="text-lg text-gray-600 mb-10">
-        ONEDNS는 기술과 사람, 그리고 신뢰를 기반으로 성장하고 있습니다.<br>
-        물류의 미래를 함께 설계할 분들을 기다립니다.
-      </p>
-      <a href="career.html#job-openings" class="inline-block bg-black text-white px-10 py-4 rounded-full text-lg font-medium hover:bg-gray-800 transition" data-aos="zoom-in">채용공고 보기</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
+  <!-- Footer (same as ethics.html) -->
   <footer id="company" class="border-t bg-white">
     <div class="mx-auto container-tight px-4 md:px-6 lg:px-8 xl:px-12 py-12">
       <div class="grid grid-cols-2 gap-8 md:grid-cols-6">
@@ -382,7 +306,7 @@
           <p class="typography-body-2-normal font-medium mb-3">회사</p>
           <ul class="space-y-2 typography-body-2-reading">
             <li><a class="hover:text-black" href="company.html">회사 및 3PL 소개</a></li>
-            <li><a class="hover:text-black" href="#center-intro">센터소개</a></li>
+            <li><a class="hover:text-black" href="company.html#center-intro">센터소개</a></li>
           </ul>
         </div>
         <div>
@@ -435,82 +359,33 @@
     </div>
   </footer>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    (function(){
-      const $ = (s, r=document) => r.querySelector(s);
-      const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
-
-      // Initialize AOS
-      AOS.init({ once: true });
-
-      // Header shadow
-      const header = document.querySelector('header.site-header');
-      const onScrollHeader = () => { if (!header) return; header.classList.toggle('shadow-sm', window.scrollY > 8); };
-      onScrollHeader();
-      addEventListener('scroll', onScrollHeader, {passive:true});
-
-      // Mobile menu toggle
-      const mobileMenuBtn = $('#mobileMenuBtn');
-      const mobileMenu = $('#mobileMenu');
-      const mobileMenuOverlay = $('#mobileMenuOverlay');
-      const menuIcon = $('#menuIcon');
-      const closeIcon = $('#closeIcon');
-      let isMenuOpen = false;
-
-      const toggleMobileMenu = () => {
-        isMenuOpen = !isMenuOpen;
-        if (isMenuOpen) {
-          mobileMenu.classList.remove('translate-x-full');
-          mobileMenuOverlay.classList.remove('opacity-0', 'invisible');
-          mobileMenuOverlay.classList.add('opacity-100', 'visible');
-          menuIcon.classList.add('hidden');
-          closeIcon.classList.remove('hidden');
-          document.body.style.overflow = 'hidden';
-        } else {
-          mobileMenu.classList.add('translate-x-full');
-          mobileMenuOverlay.classList.remove('opacity-100', 'visible');
-          mobileMenuOverlay.classList.add('opacity-0', 'invisible');
-          menuIcon.classList.remove('hidden');
-          closeIcon.classList.add('hidden');
-          document.body.style.overflow = '';
-        }
-      };
-
-      const closeMobileMenu = () => {
-        if (isMenuOpen) {
-          toggleMobileMenu();
-        }
-      };
-
-      mobileMenuBtn?.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleMobileMenu();
-      });
-
-      mobileMenuOverlay?.addEventListener('click', closeMobileMenu);
-
-      // Close menu when clicking on menu links
-      const mobileMenuLinks = $$('#mobileMenu a');
-      mobileMenuLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          setTimeout(closeMobileMenu, 100);
-        });
-      });
-
-      // Smooth anchors
-      $$('a[href^="#"]').forEach(a => {
-        if (!a.closest('#mobileMenu')) {
-          a.addEventListener('click', (e) => {
-            const id = a.getAttribute('href');
-            if (id && id.length > 1) {
-              const t = document.querySelector(id);
-              if (t) { e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }
-            }
-          });
-        }
-      });
-    })();
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const menuIcon = document.getElementById('menuIcon');
+    const closeIcon = document.getElementById('closeIcon');
+    function toggleMobileMenu() {
+      const isOpen = mobileMenu.classList.contains('translate-x-0');
+      if (isOpen) {
+        mobileMenu.classList.remove('translate-x-0');
+        mobileMenu.classList.add('translate-x-full');
+        mobileMenuOverlay.classList.remove('opacity-100');
+        mobileMenuOverlay.classList.add('opacity-0', 'invisible');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      } else {
+        mobileMenu.classList.remove('translate-x-full');
+        mobileMenu.classList.add('translate-x-0');
+        mobileMenuOverlay.classList.remove('opacity-0', 'invisible');
+        mobileMenuOverlay.classList.add('opacity-100');
+        menuIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      }
+    }
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
   </script>
 </body>
 </html>
+
