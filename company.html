@@ -328,7 +328,7 @@
           효율, 품질, 데이터를 중심으로 물류의 새로운 표준을 만들어갑니다.
         </p>
       </div>
-      <div class="space-y-8 approach-cards">
+      <div class="space-y-[200px] approach-cards">
         <div class="rounded-2xl p-8 approach-card opacity-40 transition-all duration-700" style="background-color: #F7F7F8;" data-aos="fade-left" data-aos-delay="100" data-aos-duration="600">
           <div class="w-9 h-9 mb-3 flex items-center justify-center rounded-lg" style="background-color: #F1F7FF;">
             <svg class="w-5 h-5" style="color: #196DF6;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -526,18 +526,21 @@
           
           // Calculate distance from viewport middle
           const distance = Math.abs(cardMiddle - viewportMiddle);
-          const maxDistance = windowHeight / 2;
+          const maxDistance = windowHeight * 0.7; // Increased for smoother transition
           
-          // Calculate opacity (1 when in middle, 0.4 when far)
-          const opacity = Math.max(0.4, 1 - (distance / maxDistance) * 0.6);
+          // Calculate opacity with smoother curve (1 when in middle, 0.3 when far)
+          const normalizedDistance = Math.min(distance / maxDistance, 1);
+          const opacity = Math.max(0.3, 1 - normalizedDistance * 0.7);
           
           card.style.opacity = opacity;
           
-          // Scale effect
-          if (distance < 200) {
-            card.style.transform = 'scale(1)';
+          // Scale effect with larger threshold
+          const scaleThreshold = 300; // Increased from 200
+          if (distance < scaleThreshold) {
+            const scale = 0.96 + (1 - distance / scaleThreshold) * 0.04; // 0.96 to 1.0
+            card.style.transform = `scale(${scale})`;
           } else {
-            card.style.transform = 'scale(0.95)';
+            card.style.transform = 'scale(0.96)';
           }
         });
       };
