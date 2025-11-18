@@ -1,0 +1,1012 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>소식 | ONEDNS – 공지사항 및 업데이트</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        colors: {
+          transparent: 'transparent',
+          current: 'currentColor',
+          black: '#0F0F10',
+          white: '#F7F7F8',
+          neutral: {
+            50: '#F7F7F8',
+            100: '#F4F4F5',
+            200: '#EAEBEC',
+            300: '#E1E2E4',
+            400: '#DBDCDF',
+            500: '#C2C4C8',
+            600: '#AEB0B6',
+            700: '#989BA2',
+            800: '#878A93',
+            900: '#70737C',
+            950: '#5A5C63',
+          },
+          gray: {
+            50: '#F7F7F8',
+            100: '#F4F4F5',
+            200: '#EAEBEC',
+            300: '#E1E2E4',
+            400: '#DBDCDF',
+            500: '#C2C4C8',
+            600: '#AEB0B6',
+            700: '#989BA2',
+            800: '#878A93',
+            900: '#70737C',
+            950: '#5A5C63',
+          },
+          blue: {
+            main: '#196DF6',
+            light: '#CFE4FF',
+            lightest: '#F1F7FF',
+          },
+          onedns: {
+            blue: '#196DF6',
+            'blue-light': '#CFE4FF',
+            'blue-lightest': '#F1F7FF',
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Pretendard Font (CDN + Fallback) -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    :root{
+      --cool-neutral-99:#F7F7F8;
+      --cool-neutral-98:#F4F4F5;
+      --cool-neutral-97:#EAEBEC;
+      --cool-neutral-96:#E1E2E4;
+      --cool-neutral-95:#DBDCDF;
+      --cool-neutral-90:#C2C4C8;
+      --cool-neutral-80:#AEB0B6;
+      --cool-neutral-70:#989BA2;
+      --cool-neutral-60:#878A93;
+      --cool-neutral-50:#70737C;
+      --cool-neutral-40:#5A5C63;
+      --cool-neutral-30:#46474C;
+      --cool-neutral-25:#37383C;
+      --cool-neutral-23:#333438;
+      --cool-neutral-22:#2E2F33;
+      --cool-neutral-20:#292A2D;
+      --cool-neutral-17:#212225;
+      --cool-neutral-15:#1B1C1E;
+      --cool-neutral-10:#171719;
+      --cool-neutral-7:#141415;
+      --cool-neutral-5:#0F0F10;
+      /* ONEDNS Blue Colors */
+      --onedns-blue-main:#196DF6;
+      --onedns-blue-light:#CFE4FF;
+      --onedns-blue-lightest:#F1F7FF;
+    }
+    body, html {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+        Roboto, 'Helvetica Neue', Arial, 'Apple SD Gothic Neo', 'Noto Sans KR',
+        'Malgun Gothic', sans-serif;
+    }
+    .container-tight{width:100%;max-width:1600px;margin-left:auto;margin-right:auto}
+    .glass{backdrop-filter: blur(12px); background: rgba(255,255,255,0.7)}
+    .nav-dropdown{position:relative}
+    .nav-dropdown:hover .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}
+    .nav-dropdown-menu{position:absolute;top:100%;left:0;margin-top:8px;min-width:180px;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity 0.2s ease,transform 0.2s ease,visibility 0.2s ease;background:white;border:1px solid rgba(0,0,0,0.1);border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.1);padding:8px 0;z-index:50}
+    .nav-dropdown-item{display:block;padding:10px 16px;color:#374151;text-decoration:none;font-size:14px;white-space:nowrap;transition:background 0.15s ease}
+    .nav-dropdown-item:hover{background:#f3f4f6;color:#111827}
+    /* Typography Styles */
+    /* Titles - #0F0F10 */
+    .typography-display-1{font-size:56px;line-height:72px;letter-spacing:-0.0319em;color:#0F0F10}
+    .typography-display-2{font-size:40px;line-height:52px;letter-spacing:-0.0282em;color:#0F0F10}
+    .typography-title-1{font-size:36px;line-height:48px;letter-spacing:-0.027em;color:#0F0F10}
+    .typography-title-2{font-size:28px;line-height:38px;letter-spacing:-0.0236em;color:#0F0F10}
+    .typography-title-3{font-size:24px;line-height:32px;letter-spacing:-0.023em;color:#0F0F10}
+    /* Subtitles and Body - #46474C */
+    .typography-heading-1{font-size:22px;line-height:30px;letter-spacing:-0.0194em;color:#46474C}
+    .typography-heading-2{font-size:20px;line-height:28px;letter-spacing:-0.012em;color:#46474C}
+    .typography-headline-1{font-size:18px;line-height:26px;letter-spacing:-0.002em;color:#46474C}
+    .typography-headline-2{font-size:17px;line-height:24px;letter-spacing:0em;color:#46474C}
+    .typography-body-1-normal{font-size:16px;line-height:24px;letter-spacing:0.0057em;color:#46474C}
+    .typography-body-1-reading{font-size:16px;line-height:26px;letter-spacing:0.0057em;color:#46474C}
+    .typography-body-2-normal{font-size:15px;line-height:22px;letter-spacing:0.0096em;color:#46474C}
+    .typography-body-2-reading{font-size:15px;line-height:24px;letter-spacing:0.0096em;color:#46474C}
+    .typography-label-1-normal{font-size:14px;line-height:20px;letter-spacing:0.0145em;color:#46474C}
+    .typography-label-1-reading{font-size:14px;line-height:22px;letter-spacing:0.0145em;color:#46474C}
+    .typography-label-2{font-size:13px;line-height:18px;letter-spacing:0.0194em;color:#46474C}
+    .typography-caption-1{font-size:12px;line-height:16px;letter-spacing:0.0252em;color:#46474C}
+    .typography-caption-2{font-size:11px;line-height:14px;letter-spacing:0.0311em;color:#46474C}
+    /* Override typography colors on dark backgrounds */
+    .bg-black .typography-headline-1,
+    .bg-neutral-900 .typography-headline-1,
+    section.bg-black .typography-headline-1,
+    section.bg-neutral-900 .typography-headline-1{color:#C2C4C8}
+    .bg-black .typography-body-1-normal,
+    .bg-neutral-900 .typography-body-1-normal,
+    section.bg-black .typography-body-1-normal,
+    section.bg-neutral-900 .typography-body-1-normal{color:#E1E2E4}
+    @media(max-width:768px){
+      .typography-display-1{font-size:32px;line-height:42px}
+      .typography-display-2{font-size:28px;line-height:36px}
+      .typography-title-1{font-size:24px;line-height:32px}
+      .typography-title-2{font-size:22px;line-height:28px}
+      .typography-headline-1{font-size:16px;line-height:24px}
+      .typography-heading-1{font-size:18px;line-height:26px}
+      .typography-body-1-reading{font-size:15px;line-height:22px}
+      .container-tight{padding-left:1rem;padding-right:1rem}
+    }
+    /* News Card Hover Effect */
+    .news-card {
+      transition: all 0.3s ease;
+    }
+    .news-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+    /* Tab Navigation */
+    .tab-button {
+      transition: all 0.2s ease;
+    }
+    .tab-button.active {
+      color: #196DF6;
+      border-bottom: 2px solid #196DF6;
+    }
+    /* Badge */
+    .badge-new {
+      background: linear-gradient(135deg, #196DF6 0%, #0D4FBD 100%);
+    }
+  </style>
+</head>
+<body class="bg-white text-neutral-900">
+  <!-- Top Bar -->
+  <header class="site-header sticky top-0 z-50 border-b border-neutral-200/60 bg-white/80 glass">
+    <div class="mx-auto container-tight px-4 md:px-6 lg:px-8 xl:px-12 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <img src="logo_onedns.svg" alt="ONEDNS" class="h-7 w-auto" />
+      </a>
+      <button id="mobileMenuBtn" class="md:hidden p-2">
+        <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      <nav id="mainNav" class="hidden md:flex items-center gap-1 text-sm text-neutral-700">
+        <!-- 1. 회사 -->
+        <div class="nav-dropdown">
+          <a href="company.html" class="px-3 py-2 typography-label-1-normal hover:text-black cursor-pointer flex items-center gap-1">
+            회사
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="company.html" class="nav-dropdown-item">회사 및 3PL 소개</a>
+            <a href="company.html#center-intro" class="nav-dropdown-item">센터소개</a>
+          </div>
+        </div>
+        
+        <!-- 2. 솔루션 -->
+        <div class="nav-dropdown">
+          <a href="solution.html" class="px-3 py-2 typography-label-1-normal hover:text-black cursor-pointer flex items-center gap-1">
+            솔루션
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="solution.html#plgo-oms" class="nav-dropdown-item">PLGO OMS</a>
+            <a href="solution.html#plgo-wms" class="nav-dropdown-item">PLGO WMS</a>
+          </div>
+        </div>
+        
+        <!-- 3. 인재 채용 -->
+        <div class="nav-dropdown">
+          <a href="career.html" class="px-3 py-2 typography-label-1-normal hover:text-black cursor-pointer flex items-center gap-1">
+            인재 채용
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="career.html#team-culture" class="nav-dropdown-item">팀 문화</a>
+            <a href="career.html#job-openings" class="nav-dropdown-item">채용공고</a>
+            <a href="career.html#career-faq" class="nav-dropdown-item">FAQ</a>
+          </div>
+        </div>
+        
+        <!-- 4. 소식 -->
+        <div class="nav-dropdown">
+          <a href="news.html" class="px-3 py-2 typography-label-1-normal hover:text-black cursor-pointer flex items-center gap-1">
+            소식
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="news.html#notice" class="nav-dropdown-item">공지사항</a>
+            <a href="news.html#plgo-guide" class="nav-dropdown-item">PLGO 사용 가이드</a>
+            <a href="news.html#plgo-updates" class="nav-dropdown-item">PLGO 업데이트 소식</a>
+          </div>
+        </div>
+        
+        <!-- 5. 윤리준법 제보 -->
+            <a href="ethics.html" class="px-3 py-2 typography-label-1-normal hover:text-black">윤리준법 제보</a>
+        
+        <!-- 6. 요금안내 -->
+        <div class="nav-dropdown">
+          <a href="pricing.html" class="px-3 py-2 typography-label-1-normal hover:text-black cursor-pointer flex items-center gap-1">
+            요금안내
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="pricing.html#pricing-info" class="nav-dropdown-item">요금안내</a>
+            <a href="pricing.html#quote" class="nav-dropdown-item">물류견적</a>
+          </div>
+        </div>
+        
+        <!-- 7. 서비스 신청 -->
+            <a href="sales.html" class="px-4 py-2 typography-label-1-normal text-white transition-opacity hover:opacity-90" style="background-color: #196DF6; border-radius: 300px;">서비스 신청</a>
+      </nav>
+    </div>
+    <!-- Mobile Menu (hidden on desktop) -->
+    <div id="mobileMenu" class="md:hidden fixed inset-0 z-40 transform translate-x-full transition-transform duration-300 ease-in-out" style="top: 73px; background-color: #FFFFFF !important; width: 100%; height: calc(100vh - 73px);">
+      <div class="flex flex-col p-6 space-y-4 overflow-y-auto" style="background-color: #FFFFFF;">
+        <!-- Mobile Menu Items -->
+        <a href="company.html" class="px-4 py-3 typography-label-1-normal hover:bg-neutral-100 rounded-lg" style="color: #46474C;">회사</a>
+        <a href="solution.html" class="px-4 py-3 typography-label-1-normal hover:bg-neutral-100 rounded-lg" style="color: #46474C;">솔루션</a>
+        <a href="career.html" class="px-4 py-3 typography-label-1-normal hover:bg-neutral-100 rounded-lg" style="color: #46474C;">인재 채용</a>
+        <a href="news.html" class="px-4 py-3 typography-label-1-normal hover:bg-neutral-100 rounded-lg" style="color: #46474C;">소식</a>
+        <a href="ethics.html" class="px-4 py-3 typography-label-1-normal hover:bg-neutral-100 rounded-lg" style="color: #46474C;">윤리준법 제보</a>
+        <a href="pricing.html" class="px-4 py-3 typography-label-1-normal hover:bg-neutral-100 rounded-lg" style="color: #46474C;">요금안내</a>
+        <a href="sales.html" class="px-4 py-3 typography-label-1-normal text-white hover:opacity-90 rounded-lg text-center" style="background-color: #196DF6; border-radius: 300px; color: white !important;">서비스 신청</a>
+      </div>
+    </div>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenuOverlay" class="md:hidden fixed inset-0 bg-black bg-opacity-50 z-30 opacity-0 invisible transition-opacity duration-300" style="top: 73px;"></div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative w-full bg-black min-h-[60vh] md:min-h-[50vh] md:h-auto">
+    <!-- Background -->
+    <div class="absolute inset-0 w-full h-full">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+      <div class="w-full h-full bg-black"></div>
+    </div>
+    
+    <!-- Content Wrapper -->
+    <div class="relative z-10 w-full h-full">
+      <div class="container-tight mx-auto px-4 md:px-6 lg:px-8 xl:px-12 min-h-[60vh] md:min-h-[50vh] flex flex-col justify-end pb-16 md:pb-24 lg:pb-32">
+        <!-- Text Wrapper -->
+        <div class="max-w-4xl">
+          <h1 class="typography-display-1 font-medium text-white mb-4 md:mb-6 text-[40px] leading-[48px] md:text-[56px] md:leading-[72px]">
+            ONEDNS 소식
+          </h1>
+          <p class="typography-headline-1 font-light text-white mb-8 md:mb-10 text-[18px] leading-[27px] md:text-[21px] md:leading-[31.5px]">
+            ONEDNS의 최신 소식과 업데이트를 확인하세요.<br class="hidden sm:block">
+            더 나은 물류 솔루션을 위한 우리의 여정을 함께합니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tab Navigation -->
+  <section class="w-full bg-white border-b border-neutral-200 sticky top-[73px] z-40">
+    <div class="container-tight mx-auto px-4 md:px-6 lg:px-8 xl:px-12">
+      <nav class="flex gap-8 overflow-x-auto">
+        <button class="tab-button typography-body-1-normal font-medium py-4 whitespace-nowrap active" data-tab="notice">
+          공지사항
+        </button>
+        <button class="tab-button typography-body-1-normal font-medium py-4 whitespace-nowrap" data-tab="guide">
+          PLGO 사용 가이드
+        </button>
+        <button class="tab-button typography-body-1-normal font-medium py-4 whitespace-nowrap" data-tab="updates">
+          PLGO 업데이트 소식
+        </button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Notice Section -->
+  <section id="notice" class="tab-content w-full bg-neutral-50 py-20 md:py-32">
+    <div class="container-tight mx-auto px-4 md:px-6 lg:px-8 xl:px-12">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="typography-display-2 font-medium mb-6" data-aos="fade-up">
+          공지사항
+        </h2>
+        <p class="typography-headline-1" data-aos="fade-up" data-aos-delay="100">
+          ONEDNS의 중요한 공지사항을 확인하세요.
+        </p>
+      </div>
+
+      <div class="max-w-5xl mx-auto space-y-4">
+        <!-- Notice Item 1 -->
+        <div class="news-card bg-white rounded-2xl p-6 md:p-8 cursor-pointer" data-aos="fade-up" data-aos-delay="0">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="badge-new px-3 py-1 typography-caption-1 text-white rounded-full">NEW</span>
+                <span class="typography-caption-1 text-neutral-500">2025.01.15</span>
+              </div>
+              <h3 class="typography-title-3 font-semibold mb-3">2025년 설 연휴 배송 및 고객센터 운영 안내</h3>
+              <p class="typography-body-1-reading text-neutral-600">
+                2025년 설 연휴 기간 동안의 배송 일정 및 고객센터 운영 시간을 안내드립니다. 
+                원활한 서비스 이용을 위해 사전에 확인해주시기 바랍니다.
+              </p>
+            </div>
+            <svg class="w-6 h-6 flex-shrink-0 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Notice Item 2 -->
+        <div class="news-card bg-white rounded-2xl p-6 md:p-8 cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="typography-caption-1 text-neutral-500">2024.12.20</span>
+              </div>
+              <h3 class="typography-title-3 font-semibold mb-3">PLGO 정기 점검 안내 (2024년 12월)</h3>
+              <p class="typography-body-1-reading text-neutral-600">
+                시스템 안정성 향상을 위한 정기 점검이 진행됩니다. 
+                점검 시간: 2024년 12월 25일(수) 02:00 ~ 06:00 (약 4시간)
+              </p>
+            </div>
+            <svg class="w-6 h-6 flex-shrink-0 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Notice Item 3 -->
+        <div class="news-card bg-white rounded-2xl p-6 md:p-8 cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="typography-caption-1 text-neutral-500">2024.12.01</span>
+              </div>
+              <h3 class="typography-title-3 font-semibold mb-3">개인정보 처리방침 개정 안내</h3>
+              <p class="typography-body-1-reading text-neutral-600">
+                개인정보 보호법 개정에 따라 개인정보 처리방침이 일부 변경되었습니다. 
+                주요 변경 사항을 확인하시고 안전하게 서비스를 이용해주세요.
+              </p>
+            </div>
+            <svg class="w-6 h-6 flex-shrink-0 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Notice Item 4 -->
+        <div class="news-card bg-white rounded-2xl p-6 md:p-8 cursor-pointer" data-aos="fade-up" data-aos-delay="300">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="typography-caption-1 text-neutral-500">2024.11.15</span>
+              </div>
+              <h3 class="typography-title-3 font-semibold mb-3">김포 풀필먼트 센터 확장 이전 완료</h3>
+              <p class="typography-body-1-reading text-neutral-600">
+                더 나은 서비스 제공을 위해 김포 풀필먼트 센터를 확장 이전하였습니다. 
+                기존 대비 2배 확대된 공간에서 더욱 빠르고 정확한 물류 서비스를 제공합니다.
+              </p>
+            </div>
+            <svg class="w-6 h-6 flex-shrink-0 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Notice Item 5 -->
+        <div class="news-card bg-white rounded-2xl p-6 md:p-8 cursor-pointer" data-aos="fade-up" data-aos-delay="400">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="typography-caption-1 text-neutral-500">2024.10.28</span>
+              </div>
+              <h3 class="typography-title-3 font-semibold mb-3">ONEDNS 고객센터 운영시간 변경 안내</h3>
+              <p class="typography-body-1-reading text-neutral-600">
+                2024년 11월 1일부터 고객센터 운영시간이 변경됩니다. 
+                평일 09:00 ~ 18:00 → 09:00 ~ 19:00로 연장 운영하여 더 나은 고객 지원을 제공합니다.
+              </p>
+            </div>
+            <svg class="w-6 h-6 flex-shrink-0 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="flex justify-center items-center gap-2 mt-12" data-aos="fade-up">
+        <button class="w-10 h-10 flex items-center justify-center rounded-lg border border-neutral-300 hover:bg-neutral-100 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+        <button class="w-10 h-10 flex items-center justify-center rounded-lg typography-body-2-normal font-medium text-white" style="background-color: #196DF6;">1</button>
+        <button class="w-10 h-10 flex items-center justify-center rounded-lg typography-body-2-normal font-medium hover:bg-neutral-100 transition-colors">2</button>
+        <button class="w-10 h-10 flex items-center justify-center rounded-lg typography-body-2-normal font-medium hover:bg-neutral-100 transition-colors">3</button>
+        <button class="w-10 h-10 flex items-center justify-center rounded-lg typography-body-2-normal font-medium hover:bg-neutral-100 transition-colors">4</button>
+        <button class="w-10 h-10 flex items-center justify-center rounded-lg typography-body-2-normal font-medium hover:bg-neutral-100 transition-colors">5</button>
+        <button class="w-10 h-10 flex items-center justify-center rounded-lg border border-neutral-300 hover:bg-neutral-100 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLGO Guide Section -->
+  <section id="plgo-guide" class="tab-content w-full bg-white py-20 md:py-32 hidden">
+    <div class="container-tight mx-auto px-4 md:px-6 lg:px-8 xl:px-12">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="typography-display-2 font-medium mb-6" data-aos="fade-up">
+          PLGO 사용 가이드
+        </h2>
+        <p class="typography-headline-1" data-aos="fade-up" data-aos-delay="100">
+          PLGO를 효과적으로 활용하는 방법을 안내합니다.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+        <!-- Guide Card 1 -->
+        <div class="news-card bg-neutral-50 rounded-2xl overflow-hidden cursor-pointer" data-aos="fade-up" data-aos-delay="0">
+          <div class="aspect-video bg-gradient-to-br from-blue-main to-blue-600 flex items-center justify-center">
+            <svg class="w-16 h-16 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-3 py-1 typography-caption-1 rounded-full" style="background-color: #F1F7FF; color: #196DF6;">OMS</span>
+              <span class="typography-caption-1 text-neutral-500">5분</span>
+            </div>
+            <h3 class="typography-title-3 font-semibold mb-3">PLGO OMS 시작하기</h3>
+            <p class="typography-body-1-reading">
+              PLGO OMS의 기본 설정부터 주문 관리까지, 처음 사용하시는 분들을 위한 완벽한 시작 가이드입니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- Guide Card 2 -->
+        <div class="news-card bg-neutral-50 rounded-2xl overflow-hidden cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+          <div class="aspect-video bg-gradient-to-br from-blue-main to-blue-600 flex items-center justify-center">
+            <svg class="w-16 h-16 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-3 py-1 typography-caption-1 rounded-full" style="background-color: #F1F7FF; color: #196DF6;">OMS</span>
+              <span class="typography-caption-1 text-neutral-500">8분</span>
+            </div>
+            <h3 class="typography-title-3 font-semibold mb-3">주문 통합 관리 방법</h3>
+            <p class="typography-body-1-reading">
+              여러 채널의 주문을 하나로 통합하여 관리하는 방법을 단계별로 안내합니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- Guide Card 3 -->
+        <div class="news-card bg-neutral-50 rounded-2xl overflow-hidden cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+          <div class="aspect-video bg-gradient-to-br from-blue-main to-blue-600 flex items-center justify-center">
+            <svg class="w-16 h-16 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+            </svg>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-3 py-1 typography-caption-1 rounded-full" style="background-color: #F1F7FF; color: #196DF6;">WMS</span>
+              <span class="typography-caption-1 text-neutral-500">10분</span>
+            </div>
+            <h3 class="typography-title-3 font-semibold mb-3">PLGO WMS 재고 관리 가이드</h3>
+            <p class="typography-body-1-reading">
+              효율적인 재고 관리를 위한 PLGO WMS의 핵심 기능들을 상세히 설명합니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- Guide Card 4 -->
+        <div class="news-card bg-neutral-50 rounded-2xl overflow-hidden cursor-pointer" data-aos="fade-up" data-aos-delay="300">
+          <div class="aspect-video bg-gradient-to-br from-blue-main to-blue-600 flex items-center justify-center">
+            <svg class="w-16 h-16 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+            </svg>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-3 py-1 typography-caption-1 rounded-full" style="background-color: #F1F7FF; color: #196DF6;">Analytics</span>
+              <span class="typography-caption-1 text-neutral-500">7분</span>
+            </div>
+            <h3 class="typography-title-3 font-semibold mb-3">데이터 분석 리포트 활용하기</h3>
+            <p class="typography-body-1-reading">
+              PLGO의 강력한 데이터 분석 기능을 활용하여 비즈니스 인사이트를 얻는 방법을 안내합니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- Guide Card 5 -->
+        <div class="news-card bg-neutral-50 rounded-2xl overflow-hidden cursor-pointer" data-aos="fade-up" data-aos-delay="400">
+          <div class="aspect-video bg-gradient-to-br from-blue-main to-blue-600 flex items-center justify-center">
+            <svg class="w-16 h-16 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+            </svg>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-3 py-1 typography-caption-1 rounded-full" style="background-color: #F1F7FF; color: #196DF6;">Integration</span>
+              <span class="typography-caption-1 text-neutral-500">6분</span>
+            </div>
+            <h3 class="typography-title-3 font-semibold mb-3">쇼핑몰 API 연동 가이드</h3>
+            <p class="typography-body-1-reading">
+              네이버 스마트스토어, 쿠팡, 지그재그 등 주요 쇼핑몰과 PLGO를 연동하는 방법을 안내합니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- Guide Card 6 -->
+        <div class="news-card bg-neutral-50 rounded-2xl overflow-hidden cursor-pointer" data-aos="fade-up" data-aos-delay="500">
+          <div class="aspect-video bg-gradient-to-br from-blue-main to-blue-600 flex items-center justify-center">
+            <svg class="w-16 h-16 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-3 py-1 typography-caption-1 rounded-full" style="background-color: #F1F7FF; color: #196DF6;">Finance</span>
+              <span class="typography-caption-1 text-neutral-500">5분</span>
+            </div>
+            <h3 class="typography-title-3 font-semibold mb-3">정산 관리 및 리포트 생성</h3>
+            <p class="typography-body-1-reading">
+              물류비용 정산부터 재무 리포트 생성까지, 재무 관리의 모든 것을 안내합니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLGO Updates Section -->
+  <section id="plgo-updates" class="tab-content w-full bg-neutral-50 py-20 md:py-32 hidden">
+    <div class="container-tight mx-auto px-4 md:px-6 lg:px-8 xl:px-12">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="typography-display-2 font-medium mb-6" data-aos="fade-up">
+          PLGO 업데이트 소식
+        </h2>
+        <p class="typography-headline-1" data-aos="fade-up" data-aos-delay="100">
+          PLGO의 새로운 기능과 개선 사항을 확인하세요.
+        </p>
+      </div>
+
+      <div class="max-w-5xl mx-auto space-y-6">
+        <!-- Update Item 1 -->
+        <div class="news-card bg-white rounded-2xl p-8 md:p-10" data-aos="fade-up" data-aos-delay="0">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 badge-new">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="badge-new px-3 py-1 typography-caption-1 text-white rounded-full">v2.5.0</span>
+                <span class="typography-caption-1 text-neutral-500">2025.01.10</span>
+              </div>
+              <h3 class="typography-title-2 font-semibold mb-4">AI 기반 수요 예측 기능 출시</h3>
+              <p class="typography-body-1-reading mb-6">
+                머신러닝을 활용한 AI 수요 예측 기능이 새롭게 추가되었습니다. 
+                과거 판매 데이터와 시장 트렌드를 분석하여 향후 수요를 예측하고, 
+                최적의 재고 수준을 제안합니다.
+              </p>
+              <div class="space-y-3">
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color: #196DF6;" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  <p class="typography-body-2-reading">시계열 분석 기반 수요 예측 알고리즘</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color: #196DF6;" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  <p class="typography-body-2-reading">상품별/카테고리별 맞춤 예측 리포트</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color: #196DF6;" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  <p class="typography-body-2-reading">재고 최적화 자동 알림 기능</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Update Item 2 -->
+        <div class="news-card bg-white rounded-2xl p-8 md:p-10" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style="background-color: #F1F7FF;">
+              <svg class="w-6 h-6" style="color: #196DF6;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="px-3 py-1 typography-caption-1 rounded-full" style="background-color: #F1F7FF; color: #196DF6;">v2.4.5</span>
+                <span class="typography-caption-1 text-neutral-500">2024.12.28</span>
+              </div>
+              <h3 class="typography-title-2 font-semibold mb-4">모바일 앱 대시보드 개선</h3>
+              <p class="typography-body-1-reading mb-6">
+                모바일 환경에서 더욱 편리하게 주문과 재고를 관리할 수 있도록 
+                대시보드 UI/UX가 전면 개선되었습니다.
+              </p>
+              <div class="space-y-3">
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color: #196DF6;" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  <p class="typography-body-2-reading">직관적인 위젯 기반 대시보드</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color: #196DF6;" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  <p class="typography-body-2-reading">실시간 알림 센터</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color: #196DF6;" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  <p class="typography-body-2-reading">빠른 액션 버튼 추가</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Update Item 3 -->
+        <div class="news-card bg-white rounded-2xl p-8 md:p-10" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style="background-color: #F1F7FF;">
+              <svg class="w-6 h-6" style="color: #196DF6;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="px-3 py-1 typography-caption-1 rounded-full" style="background-color: #F1F7FF; color: #196DF6;">v2.4.0</span>
+                <span class="typography-caption-1 text-neutral-500">2024.12.15</span>
+              </div>
+              <h3 class="typography-title-2 font-semibold mb-4">고급 필터 및 검색 기능 강화</h3>
+              <p class="typography-body-1-reading mb-6">
+                복잡한 조건의 주문과 상품을 빠르게 찾을 수 있는 
+                고급 필터링 및 검색 기능이 추가되었습니다.
+              </p>
+              <div class="space-y-3">
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color: #196DF6;" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  <p class="typography-body-2-reading">다중 조건 필터링</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color: #196DF6;" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  <p class="typography-body-2-reading">필터 프리셋 저장 및 불러오기</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color: #196DF6;" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  <p class="typography-body-2-reading">자동완성 검색</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Update Item 4 -->
+        <div class="news-card bg-white rounded-2xl p-8 md:p-10" data-aos="fade-up" data-aos-delay="300">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style="background-color: #F1F7FF;">
+              <svg class="w-6 h-6" style="color: #196DF6;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="px-3 py-1 typography-caption-1 rounded-full" style="background-color: #F1F7FF; color: #196DF6;">v2.3.8</span>
+                <span class="typography-caption-1 text-neutral-500">2024.12.01</span>
+              </div>
+              <h3 class="typography-title-2 font-semibold mb-4">보안 강화 및 2단계 인증 추가</h3>
+              <p class="typography-body-1-reading mb-6">
+                고객 데이터 보호를 위한 보안이 강화되었으며, 
+                2단계 인증(2FA) 기능이 추가되었습니다.
+              </p>
+              <div class="space-y-3">
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color: #196DF6;" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  <p class="typography-body-2-reading">OTP 기반 2단계 인증</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color: #196DF6;" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  <p class="typography-body-2-reading">접속 기록 모니터링</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color: #196DF6;" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  <p class="typography-body-2-reading">역할 기반 접근 제어(RBAC)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Update Item 5 -->
+        <div class="news-card bg-white rounded-2xl p-8 md:p-10" data-aos="fade-up" data-aos-delay="400">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style="background-color: #F1F7FF;">
+              <svg class="w-6 h-6" style="color: #196DF6;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="px-3 py-1 typography-caption-1 rounded-full" style="background-color: #F1F7FF; color: #196DF6;">v2.3.5</span>
+                <span class="typography-caption-1 text-neutral-500">2024.11.20</span>
+              </div>
+              <h3 class="typography-title-2 font-semibold mb-4">대량 주문 처리 성능 최적화</h3>
+              <p class="typography-body-1-reading mb-6">
+                대량 주문 처리 속도가 기존 대비 3배 향상되었으며, 
+                동시 처리 가능한 주문 수가 대폭 증가했습니다.
+              </p>
+              <div class="space-y-3">
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color: #196DF6;" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  <p class="typography-body-2-reading">배치 처리 엔진 개선</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color: #196DF6;" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  <p class="typography-body-2-reading">데이터베이스 쿼리 최적화</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color: #196DF6;" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  <p class="typography-body-2-reading">캐싱 전략 개선</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="w-full bg-black text-white py-20 md:py-32">
+    <div class="container-tight mx-auto px-4 md:px-6 lg:px-8 xl:px-12 text-center">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="typography-display-2 font-medium text-white mb-6" data-aos="fade-up">
+          PLGO를 경험해보세요
+        </h2>
+        <p class="typography-headline-1 text-neutral-300 mb-10" data-aos="fade-up" data-aos-delay="100">
+          지금 바로 시작하여 물류 관리의 혁신을 경험하세요.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center" data-aos="fade-up" data-aos-delay="200">
+          <a href="sales.html" class="inline-flex items-center justify-center px-8 py-4 typography-body-1-normal font-medium text-white transition-opacity hover:opacity-90" style="background-color: #196DF6; border-radius: 300px;">
+            무료 체험 시작하기
+          </a>
+          <a href="solution.html" class="inline-flex items-center justify-center px-8 py-4 typography-body-1-normal font-medium text-white border-2 border-white transition-colors hover:bg-white hover:text-black" style="border-radius: 300px;">
+            솔루션 자세히 보기
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="company" class="border-t bg-white">
+    <div class="mx-auto container-tight px-4 md:px-6 lg:px-8 xl:px-12 py-12">
+      <div class="grid grid-cols-2 gap-8 md:grid-cols-6">
+        <div class="hidden md:block md:col-span-1">
+          <div class="flex items-center gap-2">
+            <img src="logo_onedns.svg" alt="ONEDNS" class="h-7 w-auto" />
+          </div>
+        </div>
+        <div>
+          <p class="typography-body-2-normal font-medium mb-3">회사</p>
+          <ul class="space-y-2 typography-body-2-reading">
+            <li><a class="hover:text-black" href="company.html">회사 및 3PL 소개</a></li>
+            <li><a class="hover:text-black" href="company.html#center-intro">센터소개</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="typography-body-2-normal font-medium mb-3">솔루션</p>
+          <ul class="space-y-2 typography-body-2-reading">
+            <li><a class="hover:text-black" href="solution.html#plgo-oms">PLGO OMS</a></li>
+            <li><a class="hover:text-black" href="solution.html#plgo-wms">PLGO WMS</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="typography-body-2-normal font-medium mb-3">인재 채용</p>
+          <ul class="space-y-2 typography-body-2-reading">
+            <li><a class="hover:text-black" href="career.html#team-culture">팀 문화</a></li>
+            <li><a class="hover:text-black" href="career.html#job-openings">채용공고</a></li>
+            <li><a class="hover:text-black" href="career.html#career-faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="typography-body-2-normal font-medium mb-3">소식</p>
+          <ul class="space-y-2 typography-body-2-reading">
+            <li><a class="hover:text-black" href="news.html#notice">공지사항</a></li>
+            <li><a class="hover:text-black" href="news.html#plgo-guide">PLGO 사용 가이드</a></li>
+            <li><a class="hover:text-black" href="news.html#plgo-updates">PLGO 업데이트 소식</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="typography-body-2-normal font-medium mb-3">요금안내</p>
+          <ul class="space-y-2 typography-body-2-reading">
+            <li><a class="hover:text-black" href="pricing.html#pricing-info">요금안내</a></li>
+            <li><a class="hover:text-black" href="pricing.html#quote">물류견적</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="border-t py-6">
+      <div class="mx-auto container-tight px-4 md:px-6 lg:px-8 xl:px-12">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <p class="typography-caption-1 text-left">© 2025 ONEDNS Inc. All rights reserved.</p>
+          <div class="flex flex-wrap items-center gap-2 typography-caption-1">
+            <a href="ethics.html" class="hover:underline">윤리준법 제보</a>
+            <span class="text-gray-400">·</span>
+            <a href="#" class="hover:underline">이용약관</a>
+            <span class="text-gray-400">·</span>
+            <a href="#" class="hover:underline">개인정보처리방침</a>
+            <span class="text-gray-400">·</span>
+            <a href="#" class="hover:underline">쿠키정책</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100
+    });
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const menuIcon = document.getElementById('menuIcon');
+    const closeIcon = document.getElementById('closeIcon');
+
+    function toggleMobileMenu() {
+      const isOpen = mobileMenu.classList.contains('translate-x-0');
+      if (isOpen) {
+        mobileMenu.classList.remove('translate-x-0');
+        mobileMenu.classList.add('translate-x-full');
+        mobileMenuOverlay.classList.remove('opacity-100');
+        mobileMenuOverlay.classList.add('opacity-0', 'invisible');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      } else {
+        mobileMenu.classList.remove('translate-x-full');
+        mobileMenu.classList.add('translate-x-0');
+        mobileMenuOverlay.classList.remove('opacity-0', 'invisible');
+        mobileMenuOverlay.classList.add('opacity-100');
+        menuIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      }
+    }
+
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
+
+    // Tab Navigation
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    // Get hash from URL or default to 'notice'
+    const hash = window.location.hash.substring(1) || 'notice';
+    const tabMap = {
+      'notice': 'notice',
+      'plgo-guide': 'guide',
+      'plgo-updates': 'updates'
+    };
+    const activeTab = tabMap[hash] || 'notice';
+
+    // Show the correct tab on page load
+    tabButtons.forEach(btn => {
+      if (btn.dataset.tab === activeTab) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+
+    tabContents.forEach(content => {
+      if (content.id === hash || (hash === '' && content.id === 'notice')) {
+        content.classList.remove('hidden');
+      } else {
+        content.classList.add('hidden');
+      }
+    });
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const targetTab = button.dataset.tab;
+        
+        // Update active button
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        // Show corresponding content
+        tabContents.forEach(content => {
+          if (
+            (targetTab === 'notice' && content.id === 'notice') ||
+            (targetTab === 'guide' && content.id === 'plgo-guide') ||
+            (targetTab === 'updates' && content.id === 'plgo-updates')
+          ) {
+            content.classList.remove('hidden');
+            
+            // Update URL hash
+            const hashMap = {
+              'notice': '#notice',
+              'guide': '#plgo-guide',
+              'updates': '#plgo-updates'
+            };
+            history.pushState(null, null, hashMap[targetTab]);
+            
+            // Scroll to top of content
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else {
+            content.classList.add('hidden');
+          }
+        });
+
+        // Re-initialize AOS for newly visible elements
+        AOS.refresh();
+      });
+    });
+
+    // Handle back/forward browser buttons
+    window.addEventListener('hashchange', () => {
+      const newHash = window.location.hash.substring(1) || 'notice';
+      const newTab = tabMap[newHash] || 'notice';
+      
+      const correspondingButton = Array.from(tabButtons).find(btn => btn.dataset.tab === newTab);
+      if (correspondingButton) {
+        correspondingButton.click();
+      }
+    });
+  </script>
+</body>
+</html>
+
